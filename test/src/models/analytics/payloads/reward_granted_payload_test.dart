@@ -21,11 +21,11 @@ void main() {
     group('Equatable', () {
       test('should equate two identical instances', () {
         const instance1 = RewardGrantedPayload(
-          rewardType: RewardType.dailyDigest,
+          rewardType: RewardType.adFree,
           durationDays: 1,
         );
         const instance2 = RewardGrantedPayload(
-          rewardType: RewardType.dailyDigest,
+          rewardType: RewardType.adFree,
           durationDays: 1,
         );
         expect(instance1, equals(instance2));
