@@ -21,11 +21,8 @@ void main() {
       filterId: 'filter-456',
       criteriaSummary: criteriaSummary,
       isPinned: false,
-      deliveryTypes: {},
+      deliveryTypes: const {},
       wasPinningLimited: true,
-      limitedDeliveryTypes: [
-        PushNotificationSubscriptionDeliveryType.dailyDigest,
-      ],
     );
 
     group('toMap', () {
@@ -47,7 +44,6 @@ void main() {
           AnalyticsParameterKeys.criteriaSummary: criteriaSummary.toJson(),
           AnalyticsParameterKeys.deliveryTypes: <String>[],
           'wasPinningLimited': true,
-          'limitedDeliveryTypes': ['dailyDigest'],
         });
       });
     });
