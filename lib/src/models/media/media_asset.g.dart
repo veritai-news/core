@@ -72,6 +72,7 @@ const _$MediaAssetStatusEnumMap = {
 };
 
 const _$MediaAssetEntityTypeEnumMap = {
+  MediaAssetEntityType.user: 'user',
   MediaAssetEntityType.headline: 'headline',
   MediaAssetEntityType.topic: 'topic',
   MediaAssetEntityType.source: 'source',

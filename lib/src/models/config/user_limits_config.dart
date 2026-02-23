@@ -20,7 +20,6 @@ class UserLimitsConfig extends Equatable {
     required this.followedItems,
     required this.savedHeadlines,
     required this.savedHeadlineFilters,
-    required this.savedSourceFilters,
     required this.reactionsPerDay,
     required this.commentsPerDay,
     required this.reportsPerDay,
@@ -42,10 +41,6 @@ class UserLimitsConfig extends Equatable {
   /// subscription counts.
   final Map<AccessTier, SavedFilterLimits> savedHeadlineFilters;
 
-  /// Tier-based limits for saved source filters, using the
-  /// [SavedFilterLimits] model to define total and pinned counts.
-  final Map<AccessTier, SavedFilterLimits> savedSourceFilters;
-
   /// Tier-based limits for the number of reactions a user can perform per day.
   final Map<AccessTier, int> reactionsPerDay;
 
@@ -66,7 +61,6 @@ class UserLimitsConfig extends Equatable {
     followedItems,
     savedHeadlines,
     savedHeadlineFilters,
-    savedSourceFilters,
     reactionsPerDay,
     commentsPerDay,
     reportsPerDay,
@@ -78,7 +72,6 @@ class UserLimitsConfig extends Equatable {
     Map<AccessTier, int>? followedItems,
     Map<AccessTier, int>? savedHeadlines,
     Map<AccessTier, SavedFilterLimits>? savedHeadlineFilters,
-    Map<AccessTier, SavedFilterLimits>? savedSourceFilters,
     Map<AccessTier, int>? commentsPerDay,
     Map<AccessTier, int>? reportsPerDay,
     Map<AccessTier, int>? reactionsPerDay,
@@ -87,7 +80,6 @@ class UserLimitsConfig extends Equatable {
       followedItems: followedItems ?? this.followedItems,
       savedHeadlines: savedHeadlines ?? this.savedHeadlines,
       savedHeadlineFilters: savedHeadlineFilters ?? this.savedHeadlineFilters,
-      savedSourceFilters: savedSourceFilters ?? this.savedSourceFilters,
       commentsPerDay: commentsPerDay ?? this.commentsPerDay,
       reportsPerDay: reportsPerDay ?? this.reportsPerDay,
       reactionsPerDay: reactionsPerDay ?? this.reactionsPerDay,

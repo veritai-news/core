@@ -33,15 +33,6 @@ UserLimitsConfig _$UserLimitsConfigFromJson(
         ),
       ),
     ),
-    savedSourceFilters: $checkedConvert(
-      'savedSourceFilters',
-      (v) => (v as Map<String, dynamic>).map(
-        (k, e) => MapEntry(
-          $enumDecode(_$AccessTierEnumMap, k),
-          SavedFilterLimits.fromJson(e as Map<String, dynamic>),
-        ),
-      ),
-    ),
     reactionsPerDay: $checkedConvert(
       'reactionsPerDay',
       (v) => (v as Map<String, dynamic>).map(
@@ -76,9 +67,6 @@ Map<String, dynamic> _$UserLimitsConfigToJson(UserLimitsConfig instance) =>
         (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e),
       ),
       'savedHeadlineFilters': instance.savedHeadlineFilters.map(
-        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e.toJson()),
-      ),
-      'savedSourceFilters': instance.savedSourceFilters.map(
         (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e.toJson()),
       ),
       'reactionsPerDay': instance.reactionsPerDay.map(

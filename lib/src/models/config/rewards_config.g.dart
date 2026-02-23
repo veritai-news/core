@@ -31,10 +31,7 @@ Map<String, dynamic> _$RewardsConfigToJson(RewardsConfig instance) =>
       ),
     };
 
-const _$RewardTypeEnumMap = {
-  RewardType.adFree: 'adFree',
-  RewardType.dailyDigest: 'dailyDigest',
-};
+const _$RewardTypeEnumMap = {RewardType.adFree: 'adFree'};
 
 RewardDetails _$RewardDetailsFromJson(Map<String, dynamic> json) =>
     $checkedCreate('RewardDetails', json, ($checkedConvert) {
