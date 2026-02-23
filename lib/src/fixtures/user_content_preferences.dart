@@ -21,9 +21,6 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
   final savedHeadlineFilters = getSavedHeadlineFiltersFixturesData(
     languageCode: resolvedLanguageCode,
   );
-  final savedSourceFilters = getSavedSourceFiltersFixturesData(
-    languageCode: resolvedLanguageCode,
-  );
 
   return [
     UserContentPreferences(
@@ -45,9 +42,6 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
       savedHeadlineFilters: savedHeadlineFilters
           .map((e) => e.copyWith(userId: kAdminUserId))
           .toList(),
-      savedSourceFilters: savedSourceFilters
-          .map((e) => e.copyWith(userId: kAdminUserId))
-          .toList(),
     ),
     UserContentPreferences(
       id: kPublisherStandardId, // Publisher (Standard)
@@ -62,9 +56,6 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
       ],
       savedHeadlines: [headlines[4], headlines[5]],
       savedHeadlineFilters: savedHeadlineFilters
-          .map((e) => e.copyWith(userId: kPublisherStandardId))
-          .toList(),
-      savedSourceFilters: savedSourceFilters
           .map((e) => e.copyWith(userId: kPublisherStandardId))
           .toList(),
     ),
@@ -87,9 +78,6 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
         followedTopics: [topics[index % 5], topics[(index + 1) % 5]],
         savedHeadlines: [headlines[index * 2], headlines[index * 2 + 1]],
         savedHeadlineFilters: savedHeadlineFilters
-            .map((e) => e.copyWith(userId: userId))
-            .toList(),
-        savedSourceFilters: savedSourceFilters
             .map((e) => e.copyWith(userId: userId))
             .toList(),
       );
