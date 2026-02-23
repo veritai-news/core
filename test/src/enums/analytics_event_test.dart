@@ -5,7 +5,7 @@ void main() {
   group('AnalyticsEvent', () {
     test('has correct number of values', () {
       // This test is fragile and will need updates if the enum changes.
-      expect(AnalyticsEvent.values.length, 52);
+      expect(AnalyticsEvent.values.length, 49);
     });
 
     test('has correct string names', () {
@@ -18,7 +18,6 @@ void main() {
         AnalyticsEvent.headlineFilterCreated.name,
         'headlineFilterCreated',
       );
-      expect(AnalyticsEvent.sourceFilterCreated.name, 'sourceFilterCreated');
     });
 
     test('can be created from string names', () {

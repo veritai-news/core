@@ -47,5 +47,4 @@ const _$PushNotificationProvidersEnumMap = {
 
 const _$PushNotificationSubscriptionDeliveryTypeEnumMap = {
   PushNotificationSubscriptionDeliveryType.breakingOnly: 'breakingOnly',
-  PushNotificationSubscriptionDeliveryType.dailyDigest: 'dailyDigest',
 };

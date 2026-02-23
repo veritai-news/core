@@ -30,7 +30,6 @@ class UserContentPreferences extends Equatable {
     required this.followedTopics,
     required this.savedHeadlines,
     required this.savedHeadlineFilters,
-    required this.savedSourceFilters,
   });
 
   /// Factory method to create a [UserContentPreferences] instance from a JSON map.
@@ -55,9 +54,6 @@ class UserContentPreferences extends Equatable {
   /// A list of the user's saved headline filters.
   final List<SavedHeadlineFilter> savedHeadlineFilters;
 
-  /// A list of the user's saved source filters.
-  final List<SavedSourceFilter> savedSourceFilters;
-
   /// Converts this [UserContentPreferences] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserContentPreferencesToJson(this);
 
@@ -69,7 +65,6 @@ class UserContentPreferences extends Equatable {
     followedTopics,
     savedHeadlines,
     savedHeadlineFilters,
-    savedSourceFilters,
   ];
 
   @override
@@ -84,7 +79,6 @@ class UserContentPreferences extends Equatable {
     List<Topic>? followedTopics,
     List<Headline>? savedHeadlines,
     List<SavedHeadlineFilter>? savedHeadlineFilters,
-    List<SavedSourceFilter>? savedSourceFilters,
   }) {
     return UserContentPreferences(
       id: id ?? this.id,
@@ -93,7 +87,6 @@ class UserContentPreferences extends Equatable {
       followedTopics: followedTopics ?? this.followedTopics,
       savedHeadlines: savedHeadlines ?? this.savedHeadlines,
       savedHeadlineFilters: savedHeadlineFilters ?? this.savedHeadlineFilters,
-      savedSourceFilters: savedSourceFilters ?? this.savedSourceFilters,
     );
   }
 }

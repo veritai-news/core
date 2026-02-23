@@ -41,12 +41,6 @@ UserContentPreferences _$UserContentPreferencesFromJson(
           .map((e) => SavedHeadlineFilter.fromJson(e as Map<String, dynamic>))
           .toList(),
     ),
-    savedSourceFilters: $checkedConvert(
-      'savedSourceFilters',
-      (v) => (v as List<dynamic>)
-          .map((e) => SavedSourceFilter.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    ),
   );
   return val;
 });
@@ -62,9 +56,6 @@ Map<String, dynamic> _$UserContentPreferencesToJson(
   'followedTopics': instance.followedTopics.map((e) => e.toJson()).toList(),
   'savedHeadlines': instance.savedHeadlines.map((e) => e.toJson()).toList(),
   'savedHeadlineFilters': instance.savedHeadlineFilters
-      .map((e) => e.toJson())
-      .toList(),
-  'savedSourceFilters': instance.savedSourceFilters
       .map((e) => e.toJson())
       .toList(),
 };

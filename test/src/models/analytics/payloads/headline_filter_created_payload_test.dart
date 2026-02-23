@@ -23,9 +23,6 @@ void main() {
       isPinned: false,
       deliveryTypes: {},
       wasPinningLimited: true,
-      limitedDeliveryTypes: [
-        PushNotificationSubscriptionDeliveryType.dailyDigest,
-      ],
     );
 
     group('toMap', () {
@@ -47,7 +44,6 @@ void main() {
           AnalyticsParameterKeys.criteriaSummary: criteriaSummary.toJson(),
           AnalyticsParameterKeys.deliveryTypes: <String>[],
           'wasPinningLimited': true,
-          'limitedDeliveryTypes': ['dailyDigest'],
         });
       });
     });

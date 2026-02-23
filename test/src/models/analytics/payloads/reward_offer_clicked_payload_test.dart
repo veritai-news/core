@@ -15,20 +15,12 @@ void main() {
     group('Equatable', () {
       test('should equate two identical instances', () {
         const instance1 = RewardOfferClickedPayload(
-          rewardType: RewardType.dailyDigest,
+          rewardType: RewardType.adFree,
         );
         const instance2 = RewardOfferClickedPayload(
-          rewardType: RewardType.dailyDigest,
+          rewardType: RewardType.adFree,
         );
         expect(instance1, equals(instance2));
-      });
-
-      test('should not equate instances with different properties', () {
-        const instance1 = payload;
-        const instance2 = RewardOfferClickedPayload(
-          rewardType: RewardType.dailyDigest,
-        );
-        expect(instance1, isNot(equals(instance2)));
       });
 
       test('props list should contain all relevant fields', () {
