@@ -29,7 +29,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             pinned: 3,
             notificationSubscriptions: {
               PushNotificationSubscriptionDeliveryType.breakingOnly: 1,
-              PushNotificationSubscriptionDeliveryType.dailyDigest: 0,
             },
           ),
           AccessTier.standard: SavedFilterLimits(
@@ -37,14 +36,10 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             pinned: 10,
             notificationSubscriptions: {
               PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
-              PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
             },
           ),
         },
-        savedSourceFilters: {
-          AccessTier.guest: SavedFilterLimits(total: 3, pinned: 3),
-          AccessTier.standard: SavedFilterLimits(total: 25, pinned: 10),
-        },
+        
         reactionsPerDay: {AccessTier.guest: 20, AccessTier.standard: 500},
         commentsPerDay: {AccessTier.guest: 0, AccessTier.standard: 50},
         reportsPerDay: {AccessTier.guest: 1, AccessTier.standard: 20},
@@ -66,7 +61,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         enabled: true,
         rewards: {
           RewardType.adFree: RewardDetails(enabled: true, durationDays: 1),
-          RewardType.dailyDigest: RewardDetails(enabled: true, durationDays: 7),
         },
       ),
       analytics: AnalyticsConfig(
@@ -178,7 +172,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         primaryProvider: PushNotificationProviders.firebase,
         deliveryConfigs: {
           PushNotificationSubscriptionDeliveryType.breakingOnly: true,
-          PushNotificationSubscriptionDeliveryType.dailyDigest: true,
         },
       ),
       community: CommunityConfig(
