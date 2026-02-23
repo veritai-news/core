@@ -8,8 +8,4 @@ enum RewardType {
   /// Grants a temporary ad-free experience across the application.
   @JsonValue('adFree')
   adFree,
-
-  /// Grants access to daily digest push notifications.
-  @JsonValue('dailyDigest')
-  dailyDigest,
 }
