@@ -8,7 +8,7 @@ and this project adheres to Semantic Versioning.
 ## [Unreleased]
 
 ### Added
-- **feat(ads)**: Added `appLovin` to `AdPlatformType` enum to support AppLovin (MAX) ad provider.
+- **feat(ads)**: Added `appLovin` & `ironSource`  to `AdPlatformType` enum to support AppLovin (MAX) ad provider.
 
 ### Removed
 - **BREAKING feat(filters)**: Removed the "Source Feed" feature. This includes the deletion of the `SavedSourceFilter` and `SourceFilterCriteria` models, along with their associated fixtures and tests.
