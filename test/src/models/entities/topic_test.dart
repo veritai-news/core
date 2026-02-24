@@ -65,8 +65,10 @@ void main() {
 
     group('copyWith', () {
       test('returns a new object with updated name', () {
-        final updated = topicFixture.copyWith(name: 'New Name');
-        expect(updated.name, 'New Name');
+        final updated = topicFixture.copyWith(
+          name: {ContentLanguage.en: 'New Name'},
+        );
+        expect(updated.name, {ContentLanguage.en: 'New Name'});
         expect(updated.id, topicFixture.id);
       });
 
@@ -81,13 +83,13 @@ void main() {
       test('returns a new object with multiple updated properties', () {
         final updated = topicFixture.copyWith(
           mediaAssetId: const ValueWrapper('new-media-id'),
-          name: 'Updated',
-          description: 'Updated Desc',
+          name: {ContentLanguage.en: 'Updated'},
+          description: {ContentLanguage.en: 'Updated Desc'},
           status: ContentStatus.archived,
         );
         expect(updated.mediaAssetId, 'new-media-id');
-        expect(updated.name, 'Updated');
-        expect(updated.description, 'Updated Desc');
+        expect(updated.name, {ContentLanguage.en: 'Updated'});
+        expect(updated.description, {ContentLanguage.en: 'Updated Desc'});
         expect(updated.status, ContentStatus.archived);
         expect(updated.id, topicFixture.id);
       });
