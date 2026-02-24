@@ -37,10 +37,10 @@ class Source extends FeedItem {
 
   /// The name of the source.
   /// This is required and should not be null.
-  final String name;
+  final Map<ContentLanguage, String> name;
 
   /// A description of the source.
-  final String description;
+  final Map<ContentLanguage, String> description;
 
   /// The URL of the source's homepage.
   final String url;
@@ -58,7 +58,7 @@ class Source extends FeedItem {
   final SourceType sourceType;
 
   /// The language of the source.
-  final Language language;
+  final ContentLanguage language;
 
   /// The country where the source is headquartered.
   final Country headquarters;
@@ -109,12 +109,12 @@ class Source extends FeedItem {
   /// Use this to modify a [Source] without changing the original instance.
   Source copyWith({
     String? id,
-    String? name,
-    String? description,
+    Map<ContentLanguage, String>? name,
+    Map<ContentLanguage, String>? description,
     String? url,
     ValueWrapper<String?>? logoUrl,
     SourceType? sourceType,
-    Language? language,
+    ContentLanguage? language,
     Country? headquarters,
     DateTime? createdAt,
     DateTime? updatedAt,
