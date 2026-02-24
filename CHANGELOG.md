@@ -8,6 +8,16 @@ and this project adheres to Semantic Versioning.
 ## [Unreleased]
 
 
+## [1.11.0] - 2026-02-24
+
+### Added
+- **feat(i18n)**: Introduced `ContentLanguage` enum as the single source of truth for supported system languages, enabling robust server-side language resolution and fallback logic.
+
+### Changed
+- **BREAKING refactor(models)**: Implemented the Multilingual Content Strategy across the entire data layer. All user-facing string properties (e.g., `title`, `name`, `description`, `label`) in core models (`Headline`, `Topic`, `Source`, `Country`, `CallToActionItem`, `ContentCollectionItem`, `SavedHeadlineFilter`, `RankedListItem`, `KpiCardData`, `ChartCardData`, `PushNotificationPayload`) have been converted from `String` to `Map<ContentLanguage, String>`. This allows the database to store all translations while the API projects a single language to the client.
+- **refactor(models)**: Updated the `Comment` model to include a `language` field, ensuring user-generated content is tagged with its locale.
+- **refactor(settings)**: Updated `AppSettings` to include a `language` preference, allowing users to explicitly select their preferred content language.
+
 ## [1.10.0] - 2026-02-24
 
 ### Added
