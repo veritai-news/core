@@ -375,8 +375,8 @@ List<KpiCardData> getKpiCardsFixturesData() {
 }
 
 /// A map containing the display labels for each KPI card in all supported languages.
-final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
-  ContentLanguage.en: {
+final Map<SupportedLanguage, Map<KpiCardId, String>> _kpiLabels = {
+  SupportedLanguage.en: {
     KpiCardId.usersTotalRegistered: 'Total Users',
     KpiCardId.usersNewRegistrations: 'New Registrations',
     KpiCardId.usersActiveUsers: 'Active Users',
@@ -402,7 +402,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'Rewards Granted',
     KpiCardId.rewardsActiveUsersCount: 'Active Reward Users',
   },
-  ContentLanguage.ar: {
+  SupportedLanguage.ar: {
     KpiCardId.usersTotalRegistered: 'إجمالي المستخدمين',
     KpiCardId.usersNewRegistrations: 'التسجيلات الجديدة',
     KpiCardId.usersActiveUsers: 'المستخدمون النشطون',
@@ -428,7 +428,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'المكافآت الممنوحة',
     KpiCardId.rewardsActiveUsersCount: 'مستخدمو المكافآت النشطون',
   },
-  ContentLanguage.es: {
+  SupportedLanguage.es: {
     KpiCardId.usersTotalRegistered: 'Usuarios totales',
     KpiCardId.usersNewRegistrations: 'Nuevos registros',
     KpiCardId.usersActiveUsers: 'Usuarios activos',
@@ -455,7 +455,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'Recompensas otorgadas',
     KpiCardId.rewardsActiveUsersCount: 'Usuarios de recompensas activos',
   },
-  ContentLanguage.fr: {
+  SupportedLanguage.fr: {
     KpiCardId.usersTotalRegistered: 'Utilisateurs totaux',
     KpiCardId.usersNewRegistrations: 'Nouvelles inscriptions',
     KpiCardId.usersActiveUsers: 'Utilisateurs actifs',
@@ -482,7 +482,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'Récompenses accordées',
     KpiCardId.rewardsActiveUsersCount: 'Utilisateurs de récompenses actifs',
   },
-  ContentLanguage.pt: {
+  SupportedLanguage.pt: {
     KpiCardId.usersTotalRegistered: 'Total de usuários',
     KpiCardId.usersNewRegistrations: 'Novos registros',
     KpiCardId.usersActiveUsers: 'Usuários ativos',
@@ -509,7 +509,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'Recompensas concedidas',
     KpiCardId.rewardsActiveUsersCount: 'Usuários de recompensas ativos',
   },
-  ContentLanguage.de: {
+  SupportedLanguage.de: {
     KpiCardId.usersTotalRegistered: 'Benutzer gesamt',
     KpiCardId.usersNewRegistrations: 'Neuregistrierungen',
     KpiCardId.usersActiveUsers: 'Aktive Benutzer',
@@ -535,7 +535,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'Gewährte Belohnungen',
     KpiCardId.rewardsActiveUsersCount: 'Aktive Belohnungsbenutzer',
   },
-  ContentLanguage.it: {
+  SupportedLanguage.it: {
     KpiCardId.usersTotalRegistered: 'Utenti totali',
     KpiCardId.usersNewRegistrations: 'Nuove registrazioni',
     KpiCardId.usersActiveUsers: 'Utenti attivi',
@@ -562,7 +562,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'Ricompense concesse',
     KpiCardId.rewardsActiveUsersCount: 'Utenti premio attivi',
   },
-  ContentLanguage.zh: {
+  SupportedLanguage.zh: {
     KpiCardId.usersTotalRegistered: '用户总数',
     KpiCardId.usersNewRegistrations: '新注册',
     KpiCardId.usersActiveUsers: '活跃用户',
@@ -588,7 +588,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: '已发放奖励',
     KpiCardId.rewardsActiveUsersCount: '活跃奖励用户',
   },
-  ContentLanguage.hi: {
+  SupportedLanguage.hi: {
     KpiCardId.usersTotalRegistered: 'कुल उपयोगकर्ता',
     KpiCardId.usersNewRegistrations: 'नए पंजीकरण',
     KpiCardId.usersActiveUsers: 'सक्रिय उपयोगकर्ता',
@@ -614,7 +614,7 @@ final Map<ContentLanguage, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.rewardsGrantedTotal: 'दिए गए पुरस्कार',
     KpiCardId.rewardsActiveUsersCount: 'सक्रिय पुरस्कार उपयोगकर्ता',
   },
-  ContentLanguage.ja: {
+  SupportedLanguage.ja: {
     KpiCardId.usersTotalRegistered: '総ユーザー数',
     KpiCardId.usersNewRegistrations: '新規登録',
     KpiCardId.usersActiveUsers: 'アクティブユーザー',

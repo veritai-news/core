@@ -23,7 +23,7 @@ class Comment extends Equatable {
       _$CommentFromJson(json);
 
   /// The language of the comment.
-  final ContentLanguage language;
+  final SupportedLanguage language;
 
   /// The text content of the comment.
   final String content;
@@ -40,7 +40,7 @@ class Comment extends Equatable {
   /// Creates a copy of this [Comment] with updated values.
   Comment copyWith({
     String? content,
-    ContentLanguage? language,
+    SupportedLanguage? language,
     ModerationStatus? status,
   }) {
     return Comment(

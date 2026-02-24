@@ -33,14 +33,14 @@ Map<String, dynamic> _$CountryToJson(Country instance) => <String, dynamic>{
 };
 
 const _$ContentLanguageEnumMap = {
-  ContentLanguage.en: 'en',
-  ContentLanguage.es: 'es',
-  ContentLanguage.fr: 'fr',
-  ContentLanguage.ar: 'ar',
-  ContentLanguage.pt: 'pt',
-  ContentLanguage.de: 'de',
-  ContentLanguage.it: 'it',
-  ContentLanguage.zh: 'zh',
-  ContentLanguage.hi: 'hi',
-  ContentLanguage.ja: 'ja',
+  SupportedLanguage.en: 'en',
+  SupportedLanguage.es: 'es',
+  SupportedLanguage.fr: 'fr',
+  SupportedLanguage.ar: 'ar',
+  SupportedLanguage.pt: 'pt',
+  SupportedLanguage.de: 'de',
+  SupportedLanguage.it: 'it',
+  SupportedLanguage.zh: 'zh',
+  SupportedLanguage.hi: 'hi',
+  SupportedLanguage.ja: 'ja',
 };

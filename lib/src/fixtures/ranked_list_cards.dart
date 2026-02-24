@@ -167,56 +167,57 @@ List<RankedListItem> _getRankedTopics(List<Topic> items, int count, int max) {
 }
 
 /// A map containing the display labels for each ranked list card in all supported languages.
-final Map<ContentLanguage, Map<RankedListCardId, String>> _rankedListLabels = {
-  ContentLanguage.en: {
+final Map<SupportedLanguage, Map<RankedListCardId, String>>
+_rankedListLabels = {
+  SupportedLanguage.en: {
     RankedListCardId.overviewHeadlinesMostViewed: 'Most Viewed Headlines',
     RankedListCardId.overviewHeadlinesMostLiked: 'Most Liked Headlines',
     RankedListCardId.overviewSourcesMostFollowed: 'Most Followed Sources',
     RankedListCardId.overviewTopicsMostFollowed: 'Most Followed Topics',
   },
-  ContentLanguage.ar: {
+  SupportedLanguage.ar: {
     RankedListCardId.overviewHeadlinesMostViewed: 'العناوين الأكثر مشاهدة',
     RankedListCardId.overviewHeadlinesMostLiked: 'العناوين الأكثر إعجابًا',
     RankedListCardId.overviewSourcesMostFollowed: 'المصادر الأكثر متابعة',
     RankedListCardId.overviewTopicsMostFollowed: 'المواضيع الأكثر متابعة',
   },
-  ContentLanguage.es: {
+  SupportedLanguage.es: {
     RankedListCardId.overviewHeadlinesMostViewed: 'Titulares más vistos',
     RankedListCardId.overviewHeadlinesMostLiked: 'Titulares con más me gusta',
     RankedListCardId.overviewSourcesMostFollowed: 'Fuentes más seguidas',
     RankedListCardId.overviewTopicsMostFollowed: 'Temas más seguidos',
   },
-  ContentLanguage.fr: {
+  SupportedLanguage.fr: {
     RankedListCardId.overviewHeadlinesMostViewed: 'Titres les plus consultés',
     RankedListCardId.overviewHeadlinesMostLiked: 'Titres les plus aimés',
     RankedListCardId.overviewSourcesMostFollowed: 'Sources les plus suivies',
     RankedListCardId.overviewTopicsMostFollowed: 'Sujets les plus suivis',
   },
-  ContentLanguage.pt: {
+  SupportedLanguage.pt: {
     RankedListCardId.overviewHeadlinesMostViewed: 'Manchetes mais visualizadas',
     RankedListCardId.overviewHeadlinesMostLiked: 'Manchetes mais curtidas',
     RankedListCardId.overviewSourcesMostFollowed: 'Fontes mais seguidas',
     RankedListCardId.overviewTopicsMostFollowed: 'Tópicos mais seguidos',
   },
-  ContentLanguage.de: {
+  SupportedLanguage.de: {
     RankedListCardId.overviewHeadlinesMostViewed: 'Meistgesehene Schlagzeilen',
     RankedListCardId.overviewHeadlinesMostLiked: 'Beliebteste Schlagzeilen',
     RankedListCardId.overviewSourcesMostFollowed: 'Meistgefolgte Quellen',
     RankedListCardId.overviewTopicsMostFollowed: 'Meistgefolgte Themen',
   },
-  ContentLanguage.it: {
+  SupportedLanguage.it: {
     RankedListCardId.overviewHeadlinesMostViewed: 'Titoli più visti',
     RankedListCardId.overviewHeadlinesMostLiked: 'Titoli più piaciuti',
     RankedListCardId.overviewSourcesMostFollowed: 'Fonti più seguite',
     RankedListCardId.overviewTopicsMostFollowed: 'Argomenti più seguiti',
   },
-  ContentLanguage.zh: {
+  SupportedLanguage.zh: {
     RankedListCardId.overviewHeadlinesMostViewed: '浏览最多的头条新闻',
     RankedListCardId.overviewHeadlinesMostLiked: '最受欢迎的头条新闻',
     RankedListCardId.overviewSourcesMostFollowed: '关注最多的来源',
     RankedListCardId.overviewTopicsMostFollowed: '关注最多的主题',
   },
-  ContentLanguage.hi: {
+  SupportedLanguage.hi: {
     RankedListCardId.overviewHeadlinesMostViewed:
         'सबसे ज्यादा देखी गई सुर्खियाँ',
     RankedListCardId.overviewHeadlinesMostLiked:
@@ -226,7 +227,7 @@ final Map<ContentLanguage, Map<RankedListCardId, String>> _rankedListLabels = {
     RankedListCardId.overviewTopicsMostFollowed:
         'सबसे ज्यादा फॉलो किए जाने वाले विषय',
   },
-  ContentLanguage.ja: {
+  SupportedLanguage.ja: {
     RankedListCardId.overviewHeadlinesMostViewed: '最も閲覧された見出し',
     RankedListCardId.overviewHeadlinesMostLiked: '最もいいねされた見出し',
     RankedListCardId.overviewSourcesMostFollowed: '最もフォローされているソース',

@@ -59,8 +59,8 @@ const _iconNames = [
   'education',
 ];
 
-final Map<ContentLanguage, List<String>> _namesByLang = {
-  ContentLanguage.en: [
+final Map<SupportedLanguage, List<String>> _namesByLang = {
+  SupportedLanguage.en: [
     'Technology',
     'Sports',
     'Politics',
@@ -72,7 +72,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Food',
     'Education',
   ],
-  ContentLanguage.ar: [
+  SupportedLanguage.ar: [
     'التكنولوجيا',
     'الرياضة',
     'السياسة',
@@ -84,7 +84,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'الطعام',
     'التعليم',
   ],
-  ContentLanguage.es: [
+  SupportedLanguage.es: [
     'Tecnología',
     'Deportes',
     'Política',
@@ -96,7 +96,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Comida',
     'Educación',
   ],
-  ContentLanguage.fr: [
+  SupportedLanguage.fr: [
     'Technologie',
     'Sports',
     'Politique',
@@ -108,7 +108,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Nourriture',
     'Éducation',
   ],
-  ContentLanguage.pt: [
+  SupportedLanguage.pt: [
     'Tecnologia',
     'Esportes',
     'Política',
@@ -120,7 +120,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Comida',
     'Educação',
   ],
-  ContentLanguage.de: [
+  SupportedLanguage.de: [
     'Technologie',
     'Sport',
     'Politik',
@@ -132,7 +132,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Essen',
     'Bildung',
   ],
-  ContentLanguage.it: [
+  SupportedLanguage.it: [
     'Tecnologia',
     'Sport',
     'Politica',
@@ -144,7 +144,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Cibo',
     'Istruzione',
   ],
-  ContentLanguage.zh: [
+  SupportedLanguage.zh: [
     '技术',
     '体育',
     '政治',
@@ -156,7 +156,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     '美食',
     '教育',
   ],
-  ContentLanguage.hi: [
+  SupportedLanguage.hi: [
     'प्रौद्योगिकी',
     'खेल',
     'राजनीति',
@@ -168,7 +168,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'भोजन',
     'शिक्षा',
   ],
-  ContentLanguage.ja: [
+  SupportedLanguage.ja: [
     'テクノロジー',
     'スポーツ',
     '政治',
@@ -182,8 +182,8 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
   ],
 };
 
-final Map<ContentLanguage, List<String>> _descriptionsByLang = {
-  ContentLanguage.en: [
+final Map<SupportedLanguage, List<String>> _descriptionsByLang = {
+  SupportedLanguage.en: [
     'News and updates from the world of technology.',
     'Latest scores, highlights, and news from sports.',
     'Updates on political events and government policies.',
@@ -195,7 +195,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Recipes, culinary trends, and food industry news.',
     'Developments in education and learning.',
   ],
-  ContentLanguage.ar: [
+  SupportedLanguage.ar: [
     'أخبار وتحديثات من عالم التكنولوجيا.',
     'آخر النتائج والأهداف والأخبار من عالم الرياضة.',
     'تحديثات حول الأحداث السياسية والسياسات الحكومية.',
@@ -207,7 +207,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'وصفات واتجاهات الطهي وأخبار صناعة المواد الغذائية.',
     'التطورات في التعليم والتعلم.',
   ],
-  ContentLanguage.es: [
+  SupportedLanguage.es: [
     'Noticias y actualizaciones del mundo de la tecnología.',
     'Últimos resultados, resúmenes y noticias deportivas.',
     'Actualizaciones sobre eventos políticos y políticas gubernamentales.',
@@ -219,7 +219,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Recetas, tendencias culinarias y noticias de la industria alimentaria.',
     'Desarrollos en educación y aprendizaje.',
   ],
-  ContentLanguage.fr: [
+  SupportedLanguage.fr: [
     'Nouvelles et mises à jour du monde de la technologie.',
     'Derniers scores, temps forts et nouvelles sportives.',
     'Mises à jour sur les événements politiques et les politiques gouvernementales.',
@@ -231,7 +231,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     "Recettes, tendances culinaires et nouvelles de l'industrie alimentaire.",
     "Développements dans l'éducation et l'apprentissage.",
   ],
-  ContentLanguage.pt: [
+  SupportedLanguage.pt: [
     'Notícias e atualizações do mundo da tecnologia.',
     'Últimos resultados, destaques e notícias de esportes.',
     'Atualizações sobre eventos políticos e políticas governamentais.',
@@ -243,7 +243,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Receitas, tendências culinárias e notícias da indústria alimentícia.',
     'Desenvolvimentos em educação e aprendizagem.',
   ],
-  ContentLanguage.de: [
+  SupportedLanguage.de: [
     'Nachrichten und Updates aus der Welt der Technologie.',
     'Aktuelle Ergebnisse, Highlights und Nachrichten aus dem Sport.',
     'Updates zu politischen Ereignissen und Regierungspolitik.',
@@ -255,7 +255,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Rezepte, kulinarische Trends und Nachrichten aus der Lebensmittelindustrie.',
     'Entwicklungen in Bildung und Lernen.',
   ],
-  ContentLanguage.it: [
+  SupportedLanguage.it: [
     'Notizie e aggiornamenti dal mondo della tecnologia.',
     'Ultimi risultati, highlights e notizie sportive.',
     'Aggiornamenti su eventi politici e politiche governative.',
@@ -267,7 +267,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     "Ricette, tendenze culinarie e notizie dall'industria alimentare.",
     "Sviluppi nell'istruzione e nell'apprendimento.",
   ],
-  ContentLanguage.zh: [
+  SupportedLanguage.zh: [
     '来自科技界的新闻和更新。',
     '最新的比分、精彩集锦和体育新闻。',
     '关于政治事件和政府政策的更新。',
@@ -279,7 +279,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     '食谱、烹饪趋势和食品行业新闻。',
     '教育和学习的发展。',
   ],
-  ContentLanguage.hi: [
+  SupportedLanguage.hi: [
     'प्रौद्योगिकी की दुनिया से समाचार और अपडेट।',
     'खेलों से नवीनतम स्कोर, हाइलाइट्स और समाचार।',
     'राजनीतिक घटनाओं और सरकारी नीतियों पर अपडेट।',
@@ -291,7 +291,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'व्यंजन विधि, पाक रुझान और खाद्य उद्योग समाचार।',
     'शिक्षा और सीखने में विकास।',
   ],
-  ContentLanguage.ja: [
+  SupportedLanguage.ja: [
     'テクノロジーの世界からのニュースと更新。',
     'スポーツからの最新スコア、ハイライト、ニュース。',
     '政治イベントと政府の政策に関する更新。',

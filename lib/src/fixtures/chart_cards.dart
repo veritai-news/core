@@ -114,19 +114,19 @@ List<ChartCardData> getChartCardsFixturesData({DateTime? now}) {
       timeFrames: {
         ChartTimeFrame.week: _generateCategoricalSeries(
           getTopicsFixturesData()
-              .map((e) => e.name[ContentLanguage.en]!)
+              .map((e) => e.name[SupportedLanguage.en]!)
               .toList(),
           5000,
         ),
         ChartTimeFrame.month: _generateCategoricalSeries(
           getTopicsFixturesData()
-              .map((e) => e.name[ContentLanguage.en]!)
+              .map((e) => e.name[SupportedLanguage.en]!)
               .toList(),
           20000,
         ),
         ChartTimeFrame.year: _generateCategoricalSeries(
           getTopicsFixturesData()
-              .map((e) => e.name[ContentLanguage.en]!)
+              .map((e) => e.name[SupportedLanguage.en]!)
               .toList(),
           240000,
         ),
@@ -245,19 +245,19 @@ List<ChartCardData> getChartCardsFixturesData({DateTime? now}) {
       timeFrames: {
         ChartTimeFrame.week: _generateCategoricalSeries(
           getTopicsFixturesData()
-              .map((e) => e.name[ContentLanguage.en]!)
+              .map((e) => e.name[SupportedLanguage.en]!)
               .toList(),
           600,
         ),
         ChartTimeFrame.month: _generateCategoricalSeries(
           getTopicsFixturesData()
-              .map((e) => e.name[ContentLanguage.en]!)
+              .map((e) => e.name[SupportedLanguage.en]!)
               .toList(),
           2400,
         ),
         ChartTimeFrame.year: _generateCategoricalSeries(
           getTopicsFixturesData()
-              .map((e) => e.name[ContentLanguage.en]!)
+              .map((e) => e.name[SupportedLanguage.en]!)
               .toList(),
           28800,
         ),
@@ -525,8 +525,8 @@ List<DataPoint> _generateCategoricalSeries(List<String> categories, int max) {
 }
 
 /// A map containing the display labels for each chart card in all supported languages.
-final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
-  ContentLanguage.en: {
+final Map<SupportedLanguage, Map<ChartCardId, String>> _chartLabels = {
+  SupportedLanguage.en: {
     // Users
     ChartCardId.usersRegistrationsOverTime: 'Registrations Over Time',
     ChartCardId.usersActiveUsersOverTime: 'Active Users Over Time',
@@ -566,7 +566,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.rewardsGrantedOverTime: 'Rewards Granted Over Time',
     ChartCardId.rewardsActiveByType: 'Active Rewards by Type',
   },
-  ContentLanguage.ar: {
+  SupportedLanguage.ar: {
     // Users
     ChartCardId.usersRegistrationsOverTime: 'التسجيلات عبر الزمن',
     ChartCardId.usersActiveUsersOverTime: 'المستخدمون النشطون عبر الزمن',
@@ -606,7 +606,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.rewardsGrantedOverTime: 'المكافآت الممنوحة عبر الزمن',
     ChartCardId.rewardsActiveByType: 'المكافآت النشطة حسب النوع',
   },
-  ContentLanguage.es: {
+  SupportedLanguage.es: {
     ChartCardId.usersRegistrationsOverTime: 'Registros a lo largo del tiempo',
     ChartCardId.usersActiveUsersOverTime:
         'Usuarios activos a lo largo del tiempo',
@@ -647,11 +647,10 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
         'Recompensas otorgadas a lo largo del tiempo',
     ChartCardId.rewardsActiveByType: 'Recompensas activas por tipo',
   },
-  ContentLanguage.fr: {
+  SupportedLanguage.fr: {
     ChartCardId.usersRegistrationsOverTime: 'Inscriptions au fil du temps',
     ChartCardId.usersActiveUsersOverTime: 'Utilisateurs actifs au fil du temps',
-    ChartCardId.usersTierDistribution:
-        "Répartition des niveaux d'utilisateurs",
+    ChartCardId.usersTierDistribution: "Répartition des niveaux d'utilisateurs",
     ChartCardId.contentHeadlinesViewsOverTime: 'Vues au fil du temps',
     ChartCardId.contentHeadlinesLikesOverTime: "J'aime au fil du temps",
     ChartCardId.contentHeadlinesViewsByTopic: 'Vues par sujet',
@@ -684,7 +683,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.rewardsGrantedOverTime: 'Récompenses accordées au fil du temps',
     ChartCardId.rewardsActiveByType: 'Récompenses actives par type',
   },
-  ContentLanguage.pt: {
+  SupportedLanguage.pt: {
     ChartCardId.usersRegistrationsOverTime: 'Registros ao longo do tempo',
     ChartCardId.usersActiveUsersOverTime: 'Usuários ativos ao longo do tempo',
     ChartCardId.usersTierDistribution: 'Distribuição de níveis de usuário',
@@ -722,7 +721,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
         'Recompensas concedidas ao longo do tempo',
     ChartCardId.rewardsActiveByType: 'Recompensas ativas por tipo',
   },
-  ContentLanguage.de: {
+  SupportedLanguage.de: {
     ChartCardId.usersRegistrationsOverTime: 'Registrierungen im Zeitverlauf',
     ChartCardId.usersActiveUsersOverTime: 'Aktive Benutzer im Zeitverlauf',
     ChartCardId.usersTierDistribution: 'Verteilung der Benutzerebenen',
@@ -757,7 +756,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.rewardsGrantedOverTime: 'Gewährte Belohnungen im Zeitverlauf',
     ChartCardId.rewardsActiveByType: 'Aktive Belohnungen nach Typ',
   },
-  ContentLanguage.it: {
+  SupportedLanguage.it: {
     ChartCardId.usersRegistrationsOverTime: 'Registrazioni nel tempo',
     ChartCardId.usersActiveUsersOverTime: 'Utenti attivi nel tempo',
     ChartCardId.usersTierDistribution: 'Distribuzione dei livelli utente',
@@ -792,7 +791,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.rewardsGrantedOverTime: 'Ricompense concesse nel tempo',
     ChartCardId.rewardsActiveByType: 'Ricompense attive per tipo',
   },
-  ContentLanguage.zh: {
+  SupportedLanguage.zh: {
     ChartCardId.usersRegistrationsOverTime: '随时间变化的注册',
     ChartCardId.usersActiveUsersOverTime: '随时间变化的活跃用户',
     ChartCardId.usersTierDistribution: '用户层级分布',
@@ -818,7 +817,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.rewardsGrantedOverTime: '随时间发放的奖励',
     ChartCardId.rewardsActiveByType: '按类型活跃奖励',
   },
-  ContentLanguage.hi: {
+  SupportedLanguage.hi: {
     ChartCardId.usersRegistrationsOverTime: 'समय के साथ पंजीकरण',
     ChartCardId.usersActiveUsersOverTime: 'समय के साथ सक्रिय उपयोगकर्ता',
     ChartCardId.usersTierDistribution: 'उपयोगकर्ता स्तर वितरण',
@@ -851,7 +850,7 @@ final Map<ContentLanguage, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.rewardsGrantedOverTime: 'समय के साथ दिए गए पुरस्कार',
     ChartCardId.rewardsActiveByType: 'प्रकार द्वारा सक्रिय पुरस्कार',
   },
-  ContentLanguage.ja: {
+  SupportedLanguage.ja: {
     ChartCardId.usersRegistrationsOverTime: '時間の経過に伴う登録',
     ChartCardId.usersActiveUsersOverTime: '時間の経過に伴うアクティブユーザー',
     ChartCardId.usersTierDistribution: 'ユーザー層の分布',

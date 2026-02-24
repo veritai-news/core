@@ -21,7 +21,7 @@ List<Source> getSourcesFixturesData() {
     final url = _urls[i];
     final logoUrl = 'https://api.companyenrich.com/logo/${url.split('/')[2]}';
     final sourceType = _sourceTypes[i];
-    final language = ContentLanguage.values.byName(_langCodes[i]);
+    final language = SupportedLanguage.values.byName(_langCodes[i]);
     final headquarters = countriesFixturesData[_countryIndexes[i]];
 
     sources.add(
@@ -140,8 +140,8 @@ const _sourceIds = [
   kSourceId90,
 ];
 
-final Map<ContentLanguage, List<String>> _namesByLang = {
-  ContentLanguage.en: [
+final Map<SupportedLanguage, List<String>> _namesByLang = {
+  SupportedLanguage.en: [
     'TechCrunch',
     'BBC News',
     'The New York Times',
@@ -233,7 +233,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Apple Newsroom',
     'The New England Journal of Medicine',
   ],
-  ContentLanguage.ar: [
+  SupportedLanguage.ar: [
     'تك كرانش',
     'بي بي سي نيوز',
     'نيويورك تايمز',
@@ -325,7 +325,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'غرفة أخبار أبل',
     'مجلة نيو إنجلاند الطبية',
   ],
-  ContentLanguage.es: [
+  SupportedLanguage.es: [
     'TechCrunch',
     'BBC News',
     'The New York Times',
@@ -417,7 +417,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Apple Newsroom',
     'The New England Journal of Medicine',
   ],
-  ContentLanguage.fr: [
+  SupportedLanguage.fr: [
     'TechCrunch',
     'BBC News',
     'The New York Times',
@@ -509,7 +509,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Apple Newsroom',
     'The New England Journal of Medicine',
   ],
-  ContentLanguage.pt: [
+  SupportedLanguage.pt: [
     'TechCrunch',
     'BBC News',
     'The New York Times',
@@ -601,7 +601,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Apple Newsroom',
     'The New England Journal of Medicine',
   ],
-  ContentLanguage.de: [
+  SupportedLanguage.de: [
     'TechCrunch',
     'BBC News',
     'The New York Times',
@@ -693,7 +693,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Apple Newsroom',
     'The New England Journal of Medicine',
   ],
-  ContentLanguage.it: [
+  SupportedLanguage.it: [
     'TechCrunch',
     'BBC News',
     'The New York Times',
@@ -785,7 +785,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Apple Newsroom',
     'The New England Journal of Medicine',
   ],
-  ContentLanguage.zh: [
+  SupportedLanguage.zh: [
     'TechCrunch',
     'BBC新闻',
     '纽约时报',
@@ -877,7 +877,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'Apple Newsroom',
     '新英格兰医学杂志',
   ],
-  ContentLanguage.hi: [
+  SupportedLanguage.hi: [
     'TechCrunch',
     'BBC न्यूज़',
     'द न्यूयॉर्क टाइम्स',
@@ -969,7 +969,7 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
     'एप्पल न्यूज़रूम',
     'द न्यू इंग्लैंड जर्नल ऑफ मेडिसिन',
   ],
-  ContentLanguage.ja: [
+  SupportedLanguage.ja: [
     'TechCrunch',
     'BBCニュース',
     'ニューヨーク・タイムズ',
@@ -1063,8 +1063,8 @@ final Map<ContentLanguage, List<String>> _namesByLang = {
   ],
 };
 
-final Map<ContentLanguage, List<String>> _descriptionsByLang = {
-  ContentLanguage.en: [
+final Map<SupportedLanguage, List<String>> _descriptionsByLang = {
+  SupportedLanguage.en: [
     'Leading online publisher of technology news.',
     'Breaking news, sport, TV, radio and a whole lot more.',
     'Breaking News, World News & Multimedia.',
@@ -1156,7 +1156,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Official press releases from Apple.',
     'A weekly medical journal.',
   ],
-  ContentLanguage.ar: [
+  SupportedLanguage.ar: [
     'الناشر الرائد عبر الإنترنت لأخبار التكنولوجيا.',
     'الأخبار العاجلة والرياضة والتلفزيون والراديو والكثير.',
     'الأخبار العاجلة والأخبار العالمية والوسائط المتعددة.',
@@ -1248,7 +1248,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'البيانات الصحفية الرسمية من Apple.',
     'مجلة طبية أسبوعية.',
   ],
-  ContentLanguage.es: [
+  SupportedLanguage.es: [
     'Principal editor en línea de noticias tecnológicas.',
     'Noticias de última hora, deportes, televisión, radio y mucho más.',
     'Noticias de última hora, noticias mundiales y multimedia.',
@@ -1340,7 +1340,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Comunicados de prensa oficiales de Apple.',
     'Una revista médica semanal.',
   ],
-  ContentLanguage.fr: [
+  SupportedLanguage.fr: [
     "Principal éditeur en ligne d'actualités technologiques.",
     'Dernières nouvelles, sport, télévision, radio et bien plus encore.',
     'Dernières nouvelles, actualités mondiales et multimédia.',
@@ -1432,7 +1432,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     "Communiqués de presse officiels d'Apple.",
     'Une revue médicale hebdomadaire.',
   ],
-  ContentLanguage.pt: [
+  SupportedLanguage.pt: [
     'Principal editor online de notícias de tecnologia.',
     'Últimas notícias, esporte, TV, rádio e muito mais.',
     'Notícias de última hora, notícias mundiais e multimídia.',
@@ -1524,7 +1524,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Comunicados de imprensa oficiais da Apple.',
     'Uma revista médica semanal.',
   ],
-  ContentLanguage.de: [
+  SupportedLanguage.de: [
     'Führender Online-Herausgeber von Technologienachrichten.',
     'Eilmeldungen, Sport, TV, Radio und vieles mehr.',
     'Eilmeldungen, Weltnachrichten & Multimedia.',
@@ -1616,7 +1616,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Offizielle Pressemitteilungen von Apple.',
     'Eine wöchentliche medizinische Fachzeitschrift.',
   ],
-  ContentLanguage.it: [
+  SupportedLanguage.it: [
     'Principale editore online di notizie tecnologiche.',
     'Ultime notizie, sport, TV, radio e molto altro.',
     'Ultime notizie, notizie dal mondo e multimedia.',
@@ -1708,7 +1708,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'Comunicati stampa ufficiali di Apple.',
     'Una rivista medica settimanale.',
   ],
-  ContentLanguage.zh: [
+  SupportedLanguage.zh: [
     '领先的在线科技新闻出版商。',
     '突发新闻、体育、电视、广播等等。',
     '突发新闻、世界新闻和多媒体。',
@@ -1800,7 +1800,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     '来自Apple的官方新闻稿。',
     '一份每周医学期刊。',
   ],
-  ContentLanguage.hi: [
+  SupportedLanguage.hi: [
     'प्रौद्योगिकी समाचारों का अग्रणी ऑनलाइन प्रकाशक।',
     'ब्रेकिंग न्यूज़, खेल, टीवी, रेडियो और बहुत कुछ।',
     'ब्रेकिंग न्यूज़, विश्व समाचार और मल्टीमीडिया।',
@@ -1892,7 +1892,7 @@ final Map<ContentLanguage, List<String>> _descriptionsByLang = {
     'एप्पल से आधिकारिक प्रेस विज्ञप्तियां।',
     'एक साप्ताहिक चिकित्सा पत्रिका।',
   ],
-  ContentLanguage.ja: [
+  SupportedLanguage.ja: [
     'テクノロジーニュースの主要なオンライン出版社。',
     'ニュース速報、スポーツ、テレビ、ラジオなど。',
     'ニュース速報、ワールドニュース、マルチメディア。',

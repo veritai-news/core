@@ -16,7 +16,7 @@ List<Comment> getHeadlineCommentsFixturesData({
   final resolvedLanguageCode = ['en', 'ar'].contains(languageCode)
       ? languageCode
       : 'en';
-  final language = ContentLanguage.values.byName(resolvedLanguageCode);
+  final language = SupportedLanguage.values.byName(resolvedLanguageCode);
 
   final commentContentsByLang = <String, List<String>>{
     'en': [

@@ -11,11 +11,11 @@ void main() {
     const mockCallToAction = CallToActionItem(
       id: 'cta-1',
       decoratorType: FeedDecoratorType.linkAccount,
-      title: {ContentLanguage.en: 'Link Account'},
+      title: {SupportedLanguage.en: 'Link Account'},
       description: {
-        ContentLanguage.en: 'Link your account to save your progress.',
+        SupportedLanguage.en: 'Link your account to save your progress.',
       },
-      callToActionText: {ContentLanguage.en: 'Link Account'},
+      callToActionText: {SupportedLanguage.en: 'Link Account'},
       callToActionUrl: 'https://example.com/link-account',
     );
 
@@ -23,14 +23,14 @@ void main() {
       id: 'cc-topic-1',
       decoratorType: FeedDecoratorType.suggestedTopics,
       items: getTopicsFixturesData().take(3).toList(),
-      title: const {ContentLanguage.en: 'Suggested Topics'},
+      title: const {SupportedLanguage.en: 'Suggested Topics'},
     );
 
     final mockContentCollectionSource = ContentCollectionItem<Source>(
       id: 'cc-source-1',
       decoratorType: FeedDecoratorType.suggestedSources,
       items: getSourcesFixturesData().take(3).toList(),
-      title: const {ContentLanguage.en: 'Suggested Sources'},
+      title: const {SupportedLanguage.en: 'Suggested Sources'},
     );
 
     group('fromJson', () {

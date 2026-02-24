@@ -54,7 +54,7 @@ void main() {
         final source1 = sourceFixture.copyWith();
         final source2 = sourceFixture.copyWith(id: 'different-id');
         final source3 = sourceFixture.copyWith(
-          name: {ContentLanguage.en: 'Different Name'},
+          name: {SupportedLanguage.en: 'Different Name'},
         );
         expect(source1, isNot(equals(source2)));
         expect(source1.hashCode, isNot(equals(source2.hashCode)));
@@ -97,7 +97,7 @@ void main() {
       });
 
       test('updates individual fields correctly', () {
-        const updatedName = {ContentLanguage.en: 'Updated Source Name'};
+        const updatedName = {SupportedLanguage.en: 'Updated Source Name'};
         const updatedLogo = 'https://example.com/logo.png';
         const updatedMediaAssetId = 'media-asset-id-123';
         final updatedCopy = sourceFixture.copyWith(
@@ -120,7 +120,7 @@ void main() {
       });
 
       test('updates multiple fields simultaneously', () {
-        const updatedName = {ContentLanguage.en: 'Multi Update Source'};
+        const updatedName = {SupportedLanguage.en: 'Multi Update Source'};
         const updatedType = SourceType.aggregator;
         const updatedStatus = ContentStatus.archived;
         final updatedCopy = sourceFixture.copyWith(

@@ -11,7 +11,7 @@ final List<AppSettings> appSettingsFixturesData = [
       textScaleFactor: AppTextScaleFactor.medium,
       fontWeight: AppFontWeight.regular,
     ),
-    language: ContentLanguage.en,
+    language: SupportedLanguage.en,
     feedSettings: FeedSettings(
       feedItemDensity: FeedItemDensity.standard,
       feedItemImageStyle: FeedItemImageStyle.smallThumbnail,
@@ -27,7 +27,7 @@ final List<AppSettings> appSettingsFixturesData = [
       textScaleFactor: AppTextScaleFactor.medium,
       fontWeight: AppFontWeight.regular,
     ),
-    language: ContentLanguage.en,
+    language: SupportedLanguage.en,
     feedSettings: FeedSettings(
       feedItemDensity: FeedItemDensity.compact,
       feedItemImageStyle: FeedItemImageStyle.largeThumbnail,
@@ -55,7 +55,7 @@ final List<AppSettings> appSettingsFixturesData = [
         textScaleFactor: AppTextScaleFactor.medium,
         fontWeight: AppFontWeight.regular,
       ),
-      language: ContentLanguage.en,
+      language: SupportedLanguage.en,
       feedSettings: const FeedSettings(
         feedItemDensity: FeedItemDensity.standard,
         feedItemImageStyle: FeedItemImageStyle.smallThumbnail,

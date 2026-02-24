@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-/// {@template content_language}
+/// {@template supported_language}
 /// A strict, enumerated contract for supported content languages.
 ///
 /// This enum acts as the single source of truth for:
@@ -9,7 +9,7 @@ import 'package:json_annotation/json_annotation.dart';
 /// 3. Fallback Logic (System defaults to `en` if requested lang is missing).
 /// {@endtemplate}
 @JsonEnum()
-enum ContentLanguage {
+enum SupportedLanguage {
   /// English (Default / Fallback).
   en,
 

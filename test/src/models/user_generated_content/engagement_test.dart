@@ -101,7 +101,7 @@ void main() {
 
       test('returns a new instance with an updated comment', () {
         const newComment = Comment(
-          language: ContentLanguage.en,
+          language: SupportedLanguage.en,
           content: 'This is a new comment.',
           status: ModerationStatus.resolved,
         );

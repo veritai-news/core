@@ -1,4 +1,4 @@
-import 'package:core/src/enums/content_language.dart';
+import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/enums/content_status.dart';
 import 'package:core/src/fixtures/countries.dart';
 import 'package:core/src/fixtures/fixture_ids.dart';
@@ -18,7 +18,7 @@ List<Headline> getHeadlinesFixturesData({DateTime? now}) {
   final headlines = <Headline>[];
   for (var i = 0; i < _headlineIds.length; i++) {
     final id = _headlineIds[i];
-    final titleIndex = i % _titlesByLang[ContentLanguage.en]!.length;
+    final titleIndex = i % _titlesByLang[SupportedLanguage.en]!.length;
     final title = {
       for (final lang in _titlesByLang.keys)
         lang: _titlesByLang[lang]![titleIndex],
@@ -70,8 +70,8 @@ const List<String> _headlineIds = [
   // Add more IDs if needed, up to kHeadlineId450
 ];
 
-final Map<ContentLanguage, List<String>> _titlesByLang = {
-  ContentLanguage.en: [
+final Map<SupportedLanguage, List<String>> _titlesByLang = {
+  SupportedLanguage.en: [
     'AI Breakthrough: New Model Achieves Human-Level Performance',
     'Local Team Wins Championship in Thrilling Final',
     'Global Leaders Meet to Discuss Climate Change Policies',
@@ -123,7 +123,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     'The Rise of Sustainable Food Packaging',
     'Personalized Learning: Tailoring Education to Individual Needs',
   ],
-  ContentLanguage.ar: [
+  SupportedLanguage.ar: [
     'إنجاز في الذكاء الاصطناعي: نموذج جديد يحقق أداءً على المستوى البشري',
     'الفريق المحلي يفوز بالبطولة في نهائي مثير',
     'قادة العالم يجتمعون لمناقشة سياسات تغير المناخ',
@@ -175,7 +175,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     'صعود أغلفة المواد الغذائية المستدامة',
     'التعلم المخصص: تكييف التعليم مع الاحتياجات الفردية',
   ],
-  ContentLanguage.es: [
+  SupportedLanguage.es: [
     'Avance en IA: Nuevo modelo alcanza rendimiento a nivel humano',
     'El equipo local gana el campeonato en una final emocionante',
     'Líderes mundiales se reúnen para discutir políticas de cambio climático',
@@ -227,7 +227,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     'El auge de los envases de alimentos sostenibles',
     'Aprendizaje personalizado: Adaptando la educación a las necesidades individuales',
   ],
-  ContentLanguage.fr: [
+  SupportedLanguage.fr: [
     'Percée en IA : Un nouveau modèle atteint une performance humaine',
     "L'équipe locale remporte le championnat lors d'une finale palpitante",
     'Les dirigeants mondiaux se réunissent pour discuter des politiques climatiques',
@@ -279,7 +279,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     "L'essor des emballages alimentaires durables",
     "Apprentissage personnalisé : Adapter l'éducation aux besoins individuels",
   ],
-  ContentLanguage.pt: [
+  SupportedLanguage.pt: [
     'Avanço em IA: Novo modelo atinge desempenho de nível humano',
     'Time local vence campeonato em final emocionante',
     'Líderes globais se reúnem para discutir políticas de mudança climática',
@@ -331,7 +331,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     'A ascensão de embalagens de alimentos sustentáveis',
     'Aprendizado personalizado: Adaptando a educação às necessidades individuais',
   ],
-  ContentLanguage.de: [
+  SupportedLanguage.de: [
     'KI-Durchbruch: Neues Modell erreicht menschliches Leistungsniveau',
     'Lokalmatador gewinnt Meisterschaft in spannendem Finale',
     'Weltführer treffen sich, um Klimapolitik zu diskutieren',
@@ -383,7 +383,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     'Der Aufstieg nachhaltiger Lebensmittelverpackungen',
     'Personalisiertes Lernen: Anpassung der Bildung an individuelle Bedürfnisse',
   ],
-  ContentLanguage.it: [
+  SupportedLanguage.it: [
     "Svolta nell'IA: Nuovo modello raggiunge prestazioni di livello umano",
     'La squadra locale vince il campionato in una finale emozionante',
     'I leader mondiali si incontrano per discutere le politiche sul cambiamento climatico',
@@ -435,7 +435,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     "L'ascesa degli imballaggi alimentari sostenibili",
     "Apprendimento personalizzato: Adattare l'istruzione alle esigenze individuali",
   ],
-  ContentLanguage.zh: [
+  SupportedLanguage.zh: [
     'AI突破：新模型达到人类水平的性能',
     '本地球队在激动人心的决赛中赢得冠军',
     '全球领导人会晤讨论气候变化政策',
@@ -487,7 +487,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     '可持续食品包装的兴起',
     '个性化学习：根据个人需求定制教育',
   ],
-  ContentLanguage.hi: [
+  SupportedLanguage.hi: [
     'एआई में बड़ी सफलता: नए मॉडल ने मानव-स्तर का प्रदर्शन हासिल किया',
     'स्थानीय टीम ने रोमांचक फाइनल में चैंपियनशिप जीती',
     'वैश्विक नेताओं ने जलवायु परिवर्तन नीतियों पर चर्चा के लिए बैठक की',
@@ -539,7 +539,7 @@ final Map<ContentLanguage, List<String>> _titlesByLang = {
     'सतत खाद्य पैकेजिंग का उदय',
     'व्यक्तिगत शिक्षा: व्यक्तिगत आवश्यकताओं के अनुसार शिक्षा को तैयार करना',
   ],
-  ContentLanguage.ja: [
+  SupportedLanguage.ja: [
     'AIのブレークスルー：新しいモデルが人間レベルのパフォーマンスを達成',
     '地元チームがスリリングな決勝戦で優勝',
     '世界のリーダーが気候変動政策について議論するために会合',

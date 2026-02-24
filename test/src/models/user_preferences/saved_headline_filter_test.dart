@@ -46,11 +46,11 @@ void main() {
 
     test('copyWith should work correctly', () {
       final copied = fullModel.copyWith(
-        name: {ContentLanguage.en: 'New Name'},
+        name: {SupportedLanguage.en: 'New Name'},
         isPinned: false,
       );
 
-      expect(copied.name, {ContentLanguage.en: 'New Name'});
+      expect(copied.name, {SupportedLanguage.en: 'New Name'});
       expect(copied.isPinned, false);
       expect(copied.id, fullModel.id);
       expect(copied.userId, fullModel.userId);
@@ -67,7 +67,7 @@ void main() {
       const model = SavedHeadlineFilter(
         id: 'filter2',
         userId: 'user2',
-        name: {ContentLanguage.en: 'Test Filter'},
+        name: {SupportedLanguage.en: 'Test Filter'},
         isPinned: false,
         deliveryTypes: {},
         criteria: HeadlineFilterCriteria(

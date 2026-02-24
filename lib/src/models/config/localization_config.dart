@@ -1,4 +1,4 @@
-import 'package:core/src/enums/content_language.dart';
+import 'package:core/src/enums/supported_language.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -26,10 +26,10 @@ class LocalizationConfig extends Equatable {
 
   /// The strict subset of languages that this app instance supports.
   /// The mobile client must ONLY render these options in the language picker.
-  final List<ContentLanguage> supportedLanguages;
+  final List<SupportedLanguage> supportedLanguages;
 
   /// The primary fallback language if a user's device language isn't supported.
-  final ContentLanguage defaultLanguage;
+  final SupportedLanguage defaultLanguage;
 
   /// Converts this [LocalizationConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$LocalizationConfigToJson(this);
@@ -40,8 +40,8 @@ class LocalizationConfig extends Equatable {
   /// Creates a copy of this [LocalizationConfig] but with the given fields
   /// replaced with the new values.
   LocalizationConfig copyWith({
-    List<ContentLanguage>? supportedLanguages,
-    ContentLanguage? defaultLanguage,
+    List<SupportedLanguage>? supportedLanguages,
+    SupportedLanguage? defaultLanguage,
   }) {
     return LocalizationConfig(
       supportedLanguages: supportedLanguages ?? this.supportedLanguages,

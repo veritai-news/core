@@ -4,23 +4,26 @@ import 'package:core/core.dart';
 List<SavedHeadlineFilter> getSavedHeadlineFiltersFixturesData() {
   final topics = getTopicsFixturesData();
 
-  final names = <ContentLanguage, List<String>>{
-    ContentLanguage.en: ['US Tech News', 'Global Business'],
-    ContentLanguage.ar: ['أخبار التكنولوجيا الأمريكية', 'أعمال عالمية'],
-    ContentLanguage.es: [
+  final names = <SupportedLanguage, List<String>>{
+    SupportedLanguage.en: ['US Tech News', 'Global Business'],
+    SupportedLanguage.ar: ['أخبار التكنولوجيا الأمريكية', 'أعمال عالمية'],
+    SupportedLanguage.es: [
       'Noticias tecnológicas de EE. UU.',
       'Negocios globales',
     ],
-    ContentLanguage.fr: [
+    SupportedLanguage.fr: [
       'Actualités technologiques américaines',
       'Affaires mondiales',
     ],
-    ContentLanguage.pt: ['Notícias de tecnologia dos EUA', 'Negócios globais'],
-    ContentLanguage.de: ['US-Tech-Nachrichten', 'Globales Geschäft'],
-    ContentLanguage.it: ['Notizie tecnologiche dagli USA', 'Affari globali'],
-    ContentLanguage.zh: ['美国科技新闻', '全球商业'],
-    ContentLanguage.hi: ['अमेरिकी तकनीकी समाचार', 'वैश्विक व्यापार'],
-    ContentLanguage.ja: ['米国の技術ニュース', 'グローバルビジネス'],
+    SupportedLanguage.pt: [
+      'Notícias de tecnologia dos EUA',
+      'Negócios globais',
+    ],
+    SupportedLanguage.de: ['US-Tech-Nachrichten', 'Globales Geschäft'],
+    SupportedLanguage.it: ['Notizie tecnologiche dagli USA', 'Affari globali'],
+    SupportedLanguage.zh: ['美国科技新闻', '全球商业'],
+    SupportedLanguage.hi: ['अमेरिकी तकनीकी समाचार', 'वैश्विक व्यापार'],
+    SupportedLanguage.ja: ['米国の技術ニュース', 'グローバルビジネス'],
   };
 
   return <SavedHeadlineFilter>[

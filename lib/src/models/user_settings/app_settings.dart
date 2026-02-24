@@ -36,7 +36,7 @@ class AppSettings extends Equatable {
   final String id;
 
   /// The selected application language.
-  final ContentLanguage language;
+  final SupportedLanguage language;
 
   /// User-configurable settings related to the application's visual appearance.
   final DisplaySettings displaySettings;
@@ -54,7 +54,7 @@ class AppSettings extends Equatable {
   /// replaced with the new values.
   AppSettings copyWith({
     String? id,
-    ContentLanguage? language,
+    SupportedLanguage? language,
     DisplaySettings? displaySettings,
     FeedSettings? feedSettings,
   }) {
