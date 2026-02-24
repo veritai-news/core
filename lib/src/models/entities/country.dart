@@ -37,7 +37,7 @@ class Country extends FeedItem {
   final String isoCode;
 
   /// The common name of the country (e.g., "United States", "United Kingdom").
-  final String name;
+  final Map<ContentLanguage, String> name;
 
   /// The URL pointing to an image of the country's flag.
   final String flagUrl;
@@ -79,7 +79,7 @@ class Country extends FeedItem {
   Country copyWith({
     String? id,
     String? isoCode,
-    String? name,
+    Map<ContentLanguage, String>? name,
     String? flagUrl,
     DateTime? createdAt,
     DateTime? updatedAt,
