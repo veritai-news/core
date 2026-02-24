@@ -1,6 +1,6 @@
-import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/enums/ranked_list_card_id.dart';
 import 'package:core/src/enums/ranked_list_time_frame.dart';
+import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/models/analytics/dashboard/ranked_list_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';

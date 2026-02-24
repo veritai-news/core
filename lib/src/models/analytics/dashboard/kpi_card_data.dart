@@ -1,6 +1,6 @@
-import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/enums/kpi_card_id.dart';
 import 'package:core/src/enums/kpi_time_frame.dart';
+import 'package:core/src/enums/supported_language.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

@@ -1,5 +1,5 @@
-import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/enums/content_status.dart';
+import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/fixtures/countries.dart';
 import 'package:core/src/fixtures/fixture_ids.dart';
 import 'package:core/src/fixtures/sources.dart' as source_fixtures;
