@@ -14,11 +14,26 @@ CallToActionItem _$CallToActionItemFromJson(Map<String, dynamic> json) =>
           'decoratorType',
           (v) => $enumDecode(_$FeedDecoratorTypeEnumMap, v),
         ),
-        title: $checkedConvert('title', (v) => v as String),
-        description: $checkedConvert('description', (v) => v as String),
+        title: $checkedConvert(
+          'title',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
+        description: $checkedConvert(
+          'description',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
         callToActionText: $checkedConvert(
           'callToActionText',
-          (v) => v as String,
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
         ),
         callToActionUrl: $checkedConvert('callToActionUrl', (v) => v as String),
       );
@@ -29,9 +44,15 @@ Map<String, dynamic> _$CallToActionItemToJson(CallToActionItem instance) =>
     <String, dynamic>{
       'id': instance.id,
       'decoratorType': _$FeedDecoratorTypeEnumMap[instance.decoratorType]!,
-      'title': instance.title,
-      'description': instance.description,
-      'callToActionText': instance.callToActionText,
+      'title': instance.title.map(
+        (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+      ),
+      'description': instance.description.map(
+        (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+      ),
+      'callToActionText': instance.callToActionText.map(
+        (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+      ),
       'callToActionUrl': instance.callToActionUrl,
     };
 
@@ -41,4 +62,17 @@ const _$FeedDecoratorTypeEnumMap = {
   FeedDecoratorType.rateApp: 'rateApp',
   FeedDecoratorType.suggestedTopics: 'suggestedTopics',
   FeedDecoratorType.suggestedSources: 'suggestedSources',
+};
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
 };

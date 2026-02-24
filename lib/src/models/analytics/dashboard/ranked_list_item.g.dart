@@ -10,7 +10,13 @@ RankedListItem _$RankedListItemFromJson(Map<String, dynamic> json) =>
     $checkedCreate('RankedListItem', json, ($checkedConvert) {
       final val = RankedListItem(
         entityId: $checkedConvert('entityId', (v) => v as String),
-        displayTitle: $checkedConvert('displayTitle', (v) => v as String),
+        displayTitle: $checkedConvert(
+          'displayTitle',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
         metricValue: $checkedConvert('metricValue', (v) => v as num),
       );
       return val;
@@ -19,6 +25,21 @@ RankedListItem _$RankedListItemFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$RankedListItemToJson(RankedListItem instance) =>
     <String, dynamic>{
       'entityId': instance.entityId,
-      'displayTitle': instance.displayTitle,
+      'displayTitle': instance.displayTitle.map(
+        (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+      ),
       'metricValue': instance.metricValue,
     };
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
+};

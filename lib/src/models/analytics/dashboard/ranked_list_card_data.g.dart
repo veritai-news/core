@@ -14,7 +14,13 @@ RankedListCardData _$RankedListCardDataFromJson(Map<String, dynamic> json) =>
           'cardId',
           (v) => $enumDecode(_$RankedListCardIdEnumMap, v),
         ),
-        label: $checkedConvert('label', (v) => v as String),
+        label: $checkedConvert(
+          'label',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
         timeFrames: $checkedConvert(
           'timeFrames',
           (v) => (v as Map<String, dynamic>).map(
@@ -36,7 +42,9 @@ Map<String, dynamic> _$RankedListCardDataToJson(RankedListCardData instance) =>
     <String, dynamic>{
       'id': instance.id,
       'cardId': _$RankedListCardIdEnumMap[instance.cardId]!,
-      'label': instance.label,
+      'label': instance.label.map(
+        (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+      ),
       'timeFrames': instance.timeFrames.map(
         (k, e) => MapEntry(
           _$RankedListTimeFrameEnumMap[k]!,
@@ -50,6 +58,19 @@ const _$RankedListCardIdEnumMap = {
   RankedListCardId.overviewHeadlinesMostLiked: 'overviewHeadlinesMostLiked',
   RankedListCardId.overviewSourcesMostFollowed: 'overviewSourcesMostFollowed',
   RankedListCardId.overviewTopicsMostFollowed: 'overviewTopicsMostFollowed',
+};
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
 };
 
 const _$RankedListTimeFrameEnumMap = {

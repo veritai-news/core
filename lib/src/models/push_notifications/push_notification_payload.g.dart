@@ -10,7 +10,13 @@ PushNotificationPayload _$PushNotificationPayloadFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('PushNotificationPayload', json, ($checkedConvert) {
   final val = PushNotificationPayload(
-    title: $checkedConvert('title', (v) => v as String),
+    title: $checkedConvert(
+      'title',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+      ),
+    ),
     notificationId: $checkedConvert('notificationId', (v) => v as String),
     notificationType: $checkedConvert(
       'notificationType',
@@ -29,7 +35,9 @@ PushNotificationPayload _$PushNotificationPayloadFromJson(
 Map<String, dynamic> _$PushNotificationPayloadToJson(
   PushNotificationPayload instance,
 ) => <String, dynamic>{
-  'title': instance.title,
+  'title': instance.title.map(
+    (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+  ),
   'notificationId': instance.notificationId,
   'notificationType':
       _$PushNotificationSubscriptionDeliveryTypeEnumMap[instance
@@ -37,6 +45,19 @@ Map<String, dynamic> _$PushNotificationPayloadToJson(
   'contentType': _$ContentTypeEnumMap[instance.contentType]!,
   'contentId': instance.contentId,
   'imageUrl': instance.imageUrl,
+};
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
 };
 
 const _$PushNotificationSubscriptionDeliveryTypeEnumMap = {

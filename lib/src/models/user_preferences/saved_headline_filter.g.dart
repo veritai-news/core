@@ -11,7 +11,13 @@ SavedHeadlineFilter _$SavedHeadlineFilterFromJson(Map<String, dynamic> json) =>
       final val = SavedHeadlineFilter(
         id: $checkedConvert('id', (v) => v as String),
         userId: $checkedConvert('userId', (v) => v as String),
-        name: $checkedConvert('name', (v) => v as String),
+        name: $checkedConvert(
+          'name',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
         criteria: $checkedConvert(
           'criteria',
           (v) => HeadlineFilterCriteria.fromJson(v as Map<String, dynamic>),
@@ -37,12 +43,27 @@ Map<String, dynamic> _$SavedHeadlineFilterToJson(
 ) => <String, dynamic>{
   'id': instance.id,
   'userId': instance.userId,
-  'name': instance.name,
+  'name': instance.name.map(
+    (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+  ),
   'criteria': instance.criteria.toJson(),
   'isPinned': instance.isPinned,
   'deliveryTypes': instance.deliveryTypes
       .map((e) => _$PushNotificationSubscriptionDeliveryTypeEnumMap[e]!)
       .toList(),
+};
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
 };
 
 const _$PushNotificationSubscriptionDeliveryTypeEnumMap = {

@@ -14,7 +14,13 @@ ChartCardData _$ChartCardDataFromJson(Map<String, dynamic> json) =>
           'cardId',
           (v) => $enumDecode(_$ChartCardIdEnumMap, v),
         ),
-        label: $checkedConvert('label', (v) => v as String),
+        label: $checkedConvert(
+          'label',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
         type: $checkedConvert(
           'type',
           (v) => $enumDecode(_$ChartTypeEnumMap, v),
@@ -38,7 +44,9 @@ Map<String, dynamic> _$ChartCardDataToJson(ChartCardData instance) =>
     <String, dynamic>{
       'id': instance.id,
       'cardId': _$ChartCardIdEnumMap[instance.cardId]!,
-      'label': instance.label,
+      'label': instance.label.map(
+        (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+      ),
       'type': _$ChartTypeEnumMap[instance.type]!,
       'timeFrames': instance.timeFrames.map(
         (k, e) => MapEntry(
@@ -88,6 +96,19 @@ const _$ChartCardIdEnumMap = {
   ChartCardId.mediaUploadsOverTime: 'mediaUploadsOverTime',
   ChartCardId.mediaUploadsByPurpose: 'mediaUploadsByPurpose',
   ChartCardId.mediaUploadsSuccessVsFailure: 'mediaUploadsSuccessVsFailure',
+};
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
 };
 
 const _$ChartTypeEnumMap = {ChartType.line: 'line', ChartType.bar: 'bar'};

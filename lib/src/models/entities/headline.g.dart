@@ -10,7 +10,13 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
     $checkedCreate('Headline', json, ($checkedConvert) {
       final val = Headline(
         id: $checkedConvert('id', (v) => v as String),
-        title: $checkedConvert('title', (v) => v as String),
+        title: $checkedConvert(
+          'title',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
         url: $checkedConvert('url', (v) => v as String),
         source: $checkedConvert(
           'source',
@@ -45,7 +51,9 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'id': instance.id,
-  'title': instance.title,
+  'title': instance.title.map(
+    (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+  ),
   'url': instance.url,
   'imageUrl': ?instance.imageUrl,
   'source': instance.source.toJson(),
@@ -56,6 +64,19 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'isBreaking': instance.isBreaking,
   'topic': instance.topic.toJson(),
   'mediaAssetId': ?instance.mediaAssetId,
+};
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
 };
 
 const _$ContentStatusEnumMap = {

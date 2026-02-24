@@ -26,7 +26,13 @@ KpiCardData _$KpiCardDataFromJson(Map<String, dynamic> json) =>
           'cardId',
           (v) => $enumDecode(_$KpiCardIdEnumMap, v),
         ),
-        label: $checkedConvert('label', (v) => v as String),
+        label: $checkedConvert(
+          'label',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry($enumDecode(_$ContentLanguageEnumMap, k), e as String),
+          ),
+        ),
         timeFrames: $checkedConvert(
           'timeFrames',
           (v) => (v as Map<String, dynamic>).map(
@@ -44,7 +50,9 @@ Map<String, dynamic> _$KpiCardDataToJson(KpiCardData instance) =>
     <String, dynamic>{
       'id': instance.id,
       'cardId': _$KpiCardIdEnumMap[instance.cardId]!,
-      'label': instance.label,
+      'label': instance.label.map(
+        (k, e) => MapEntry(_$ContentLanguageEnumMap[k]!, e),
+      ),
       'timeFrames': instance.timeFrames.map(
         (k, e) => MapEntry(_$KpiTimeFrameEnumMap[k]!, e.toJson()),
       ),
@@ -83,6 +91,19 @@ const _$KpiCardIdEnumMap = {
   KpiCardId.mediaTotalUploads: 'mediaTotalUploads',
   KpiCardId.mediaFailedUploads: 'mediaFailedUploads',
   KpiCardId.mediaAverageUploadTime: 'mediaAverageUploadTime',
+};
+
+const _$ContentLanguageEnumMap = {
+  ContentLanguage.en: 'en',
+  ContentLanguage.es: 'es',
+  ContentLanguage.fr: 'fr',
+  ContentLanguage.ar: 'ar',
+  ContentLanguage.pt: 'pt',
+  ContentLanguage.de: 'de',
+  ContentLanguage.it: 'it',
+  ContentLanguage.zh: 'zh',
+  ContentLanguage.hi: 'hi',
+  ContentLanguage.ja: 'ja',
 };
 
 const _$KpiTimeFrameEnumMap = {
