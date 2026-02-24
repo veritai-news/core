@@ -6,24 +6,18 @@ import 'package:core/src/models/entities/topic.dart';
 ///
 /// This function can be configured to generate topics in either English or
 /// Arabic.
-List<Topic> getTopicsFixturesData({String languageCode = 'en'}) {
-  // Ensure only approved languages are used, default to 'en'.
-  final resolvedLanguageCode = ['en', 'ar'].contains(languageCode)
-      ? languageCode
-      : 'en';
-
+List<Topic> getTopicsFixturesData() {
   final topics = <Topic>[];
   for (var i = 0; i < _topicIds.length; i++) {
     topics.add(
       Topic(
         id: _topicIds[i],
         name: {
-          for (final lang in _namesByLang.keys)
-            ContentLanguage.values.byName(lang): _namesByLang[lang]![i],
+          for (final lang in _namesByLang.keys) lang: _namesByLang[lang]![i],
         },
         description: {
           for (final lang in _descriptionsByLang.keys)
-            ContentLanguage.values.byName(lang): _descriptionsByLang[lang]![i],
+            lang: _descriptionsByLang[lang]![i],
         },
         iconUrl: 'https://example.com/icons/${_iconNames[i]}.png',
         createdAt: DateTime.parse(
@@ -65,8 +59,8 @@ const _iconNames = [
   'education',
 ];
 
-final Map<String, List<String>> _namesByLang = {
-  'en': [
+final Map<ContentLanguage, List<String>> _namesByLang = {
+  ContentLanguage.en: [
     'Technology',
     'Sports',
     'Politics',
@@ -78,7 +72,7 @@ final Map<String, List<String>> _namesByLang = {
     'Food',
     'Education',
   ],
-  'ar': [
+  ContentLanguage.ar: [
     'التكنولوجيا',
     'الرياضة',
     'السياسة',
@@ -90,10 +84,106 @@ final Map<String, List<String>> _namesByLang = {
     'الطعام',
     'التعليم',
   ],
+  ContentLanguage.es: [
+    'Tecnología',
+    'Deportes',
+    'Política',
+    'Ciencia',
+    'Salud',
+    'Entretenimiento',
+    'Negocios',
+    'Viajes',
+    'Comida',
+    'Educación',
+  ],
+  ContentLanguage.fr: [
+    'Technologie',
+    'Sports',
+    'Politique',
+    'Science',
+    'Santé',
+    'Divertissement',
+    'Affaires',
+    'Voyages',
+    'Nourriture',
+    'Éducation',
+  ],
+  ContentLanguage.pt: [
+    'Tecnologia',
+    'Esportes',
+    'Política',
+    'Ciência',
+    'Saúde',
+    'Entretenimento',
+    'Negócios',
+    'Viagens',
+    'Comida',
+    'Educação',
+  ],
+  ContentLanguage.de: [
+    'Technologie',
+    'Sport',
+    'Politik',
+    'Wissenschaft',
+    'Gesundheit',
+    'Unterhaltung',
+    'Wirtschaft',
+    'Reisen',
+    'Essen',
+    'Bildung',
+  ],
+  ContentLanguage.it: [
+    'Tecnologia',
+    'Sport',
+    'Politica',
+    'Scienza',
+    'Salute',
+    'Intrattenimento',
+    'Affari',
+    'Viaggi',
+    'Cibo',
+    'Istruzione',
+  ],
+  ContentLanguage.zh: [
+    '技术',
+    '体育',
+    '政治',
+    '科学',
+    '健康',
+    '娱乐',
+    '商业',
+    '旅游',
+    '美食',
+    '教育',
+  ],
+  ContentLanguage.hi: [
+    'प्रौद्योगिकी',
+    'खेल',
+    'राजनीति',
+    'विज्ञान',
+    'स्वास्थ्य',
+    'मनोरंजन',
+    'व्यापार',
+    'यात्रा',
+    'भोजन',
+    'शिक्षा',
+  ],
+  ContentLanguage.ja: [
+    'テクノロジー',
+    'スポーツ',
+    '政治',
+    '科学',
+    '健康',
+    'エンターテインメント',
+    'ビジネス',
+    '旅行',
+    '食事',
+    '教育',
+  ],
 };
 
-final Map<String, List<String>> _descriptionsByLang = {
-  'en': [
+final Map<ContentLanguage, List<String>> _descriptionsByLang = {
+  ContentLanguage.en: [
     'News and updates from the world of technology.',
     'Latest scores, highlights, and news from sports.',
     'Updates on political events and government policies.',
@@ -105,7 +195,7 @@ final Map<String, List<String>> _descriptionsByLang = {
     'Recipes, culinary trends, and food industry news.',
     'Developments in education and learning.',
   ],
-  'ar': [
+  ContentLanguage.ar: [
     'أخبار وتحديثات من عالم التكنولوجيا.',
     'آخر النتائج والأهداف والأخبار من عالم الرياضة.',
     'تحديثات حول الأحداث السياسية والسياسات الحكومية.',
@@ -116,5 +206,101 @@ final Map<String, List<String>> _descriptionsByLang = {
     'أدلة ونصائح وأخبار للمسافرين.',
     'وصفات واتجاهات الطهي وأخبار صناعة المواد الغذائية.',
     'التطورات في التعليم والتعلم.',
+  ],
+  ContentLanguage.es: [
+    'Noticias y actualizaciones del mundo de la tecnología.',
+    'Últimos resultados, resúmenes y noticias deportivas.',
+    'Actualizaciones sobre eventos políticos y políticas gubernamentales.',
+    'Descubrimientos y avances en la investigación científica.',
+    'Información y consejos sobre salud y bienestar.',
+    'Noticias de cine, música y cultura pop.',
+    'Mercados financieros, economía y noticias corporativas.',
+    'Guías, consejos y noticias para viajeros.',
+    'Recetas, tendencias culinarias y noticias de la industria alimentaria.',
+    'Desarrollos en educación y aprendizaje.',
+  ],
+  ContentLanguage.fr: [
+    'Nouvelles et mises à jour du monde de la technologie.',
+    'Derniers scores, temps forts et nouvelles sportives.',
+    'Mises à jour sur les événements politiques et les politiques gouvernementales.',
+    'Découvertes et percées dans la recherche scientifique.',
+    'Informations et conseils sur la santé et le bien-être.',
+    'Nouvelles du cinéma, de la musique et de la culture pop.',
+    'Marchés financiers, économie et nouvelles des entreprises.',
+    'Guides, conseils et nouvelles pour les voyageurs.',
+    "Recettes, tendances culinaires et nouvelles de l'industrie alimentaire.",
+    "Développements dans l'éducation et l'apprentissage.",
+  ],
+  ContentLanguage.pt: [
+    'Notícias e atualizações do mundo da tecnologia.',
+    'Últimos resultados, destaques e notícias de esportes.',
+    'Atualizações sobre eventos políticos e políticas governamentais.',
+    'Descobertas e avanços na pesquisa científica.',
+    'Informações e conselhos sobre saúde e bem-estar.',
+    'Notícias de filmes, música e cultura pop.',
+    'Mercados financeiros, economia e notícias corporativas.',
+    'Guias, dicas e notícias para viajantes.',
+    'Receitas, tendências culinárias e notícias da indústria alimentícia.',
+    'Desenvolvimentos em educação e aprendizagem.',
+  ],
+  ContentLanguage.de: [
+    'Nachrichten und Updates aus der Welt der Technologie.',
+    'Aktuelle Ergebnisse, Highlights und Nachrichten aus dem Sport.',
+    'Updates zu politischen Ereignissen und Regierungspolitik.',
+    'Entdeckungen und Durchbrüche in der wissenschaftlichen Forschung.',
+    'Informationen und Ratschläge zu Gesundheit und Wellness.',
+    'Nachrichten aus Film, Musik und Popkultur.',
+    'Finanzmärkte, Wirtschaft und Unternehmensnachrichten.',
+    'Reiseführer, Tipps und Nachrichten für Reisende.',
+    'Rezepte, kulinarische Trends und Nachrichten aus der Lebensmittelindustrie.',
+    'Entwicklungen in Bildung und Lernen.',
+  ],
+  ContentLanguage.it: [
+    'Notizie e aggiornamenti dal mondo della tecnologia.',
+    'Ultimi risultati, highlights e notizie sportive.',
+    'Aggiornamenti su eventi politici e politiche governative.',
+    'Scoperte e progressi nella ricerca scientifica.',
+    'Informazioni e consigli su salute e benessere.',
+    'Notizie da film, musica e cultura pop.',
+    'Mercati finanziari, economia e notizie aziendali.',
+    'Guide, consigli e notizie per i viaggiatori.',
+    "Ricette, tendenze culinarie e notizie dall'industria alimentare.",
+    "Sviluppi nell'istruzione e nell'apprendimento.",
+  ],
+  ContentLanguage.zh: [
+    '来自科技界的新闻和更新。',
+    '最新的比分、精彩集锦和体育新闻。',
+    '关于政治事件和政府政策的更新。',
+    '科学研究的发现和突破。',
+    '关于健康和保健的信息和建议。',
+    '来自电影、音乐和流行文化的新闻。',
+    '金融市场、经济和企业新闻。',
+    '旅行者的指南、提示和新闻。',
+    '食谱、烹饪趋势和食品行业新闻。',
+    '教育和学习的发展。',
+  ],
+  ContentLanguage.hi: [
+    'प्रौद्योगिकी की दुनिया से समाचार और अपडेट।',
+    'खेलों से नवीनतम स्कोर, हाइलाइट्स और समाचार।',
+    'राजनीतिक घटनाओं और सरकारी नीतियों पर अपडेट।',
+    'वैज्ञानिक अनुसंधान में खोज और सफलताएँ।',
+    'स्वास्थ्य और कल्याण पर जानकारी और सलाह।',
+    'फिल्मों, संगीत और पॉप संस्कृति से समाचार।',
+    'वित्तीय बाजार, अर्थव्यवस्था और कॉर्पोरेट समाचार।',
+    'यात्रियों के लिए गाइड, टिप्स और समाचार।',
+    'व्यंजन विधि, पाक रुझान और खाद्य उद्योग समाचार।',
+    'शिक्षा और सीखने में विकास।',
+  ],
+  ContentLanguage.ja: [
+    'テクノロジーの世界からのニュースと更新。',
+    'スポーツからの最新スコア、ハイライト、ニュース。',
+    '政治イベントと政府の政策に関する更新。',
+    '科学研究における発見と画期的な進歩。',
+    '健康とウェルネスに関する情報とアドバイス。',
+    '映画、音楽、ポップカルチャーからのニュース。',
+    '金融市場、経済、企業ニュース。',
+    '旅行者のためのガイド、ヒント、ニュース。',
+    'レシピ、料理のトレンド、食品業界のニュース。',
+    '教育と学習における発展。',
   ],
 };
