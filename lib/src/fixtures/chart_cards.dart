@@ -518,8 +518,10 @@ List<DataPoint> _generateCategoricalSeries(List<String> categories, int max) {
   final random = Random();
   return categories
       .map(
-        (category) =>
-            DataPoint(label: category, value: random.nextInt(max) + max * 0.1),
+        (category) => DataPoint(
+          label: {SupportedLanguage.en: category},
+          value: random.nextInt(max) + max * 0.1,
+        ),
       )
       .toList();
 }

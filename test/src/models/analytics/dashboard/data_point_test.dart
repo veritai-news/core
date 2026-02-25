@@ -10,7 +10,10 @@ void main() {
     final timeSeriesJson = timeSeriesDataPoint.toJson();
 
     // Categorical data point
-    const categoricalDataPoint = DataPoint(label: 'Category A', value: 250);
+    const categoricalDataPoint = DataPoint(
+      label: {SupportedLanguage.en: 'Category A'},
+      value: 250,
+    );
     final categoricalJson = categoricalDataPoint.toJson();
 
     group('Constructors', () {
@@ -25,7 +28,11 @@ void main() {
         'should throw assertion error if both timestamp and label are provided',
         () {
           expect(
-            () => DataPoint(timestamp: now, label: 'Category A', value: 100),
+            () => DataPoint(
+              timestamp: now,
+              label: const {SupportedLanguage.en: 'Category A'},
+              value: 100,
+            ),
             throwsA(isA<AssertionError>()),
           );
         },
@@ -87,10 +94,12 @@ void main() {
         () {
           // This should not throw an error.
           final categoricalPoint = timeSeriesDataPoint.copyWith(
-            label: 'New Category',
+            label: {SupportedLanguage.en: 'New Category'},
           );
 
-          expect(categoricalPoint.label, 'New Category');
+          expect(categoricalPoint.label, {
+            SupportedLanguage.en: 'New Category',
+          });
           expect(categoricalPoint.timestamp, isNull);
           expect(categoricalPoint.value, timeSeriesDataPoint.value);
         },
@@ -115,11 +124,11 @@ void main() {
         'should return a new instance with updated values for categorical',
         () {
           final updatedPoint = categoricalDataPoint.copyWith(
-            label: 'Category B',
+            label: {SupportedLanguage.en: 'Category B'},
             value: 300,
           );
 
-          expect(updatedPoint.label, 'Category B');
+          expect(updatedPoint.label, {SupportedLanguage.en: 'Category B'});
           expect(updatedPoint.value, 300);
           expect(updatedPoint.timestamp, isNull);
         },
@@ -134,15 +143,24 @@ void main() {
       });
 
       test('should equate two identical categorical instances', () {
-        const instance1 = DataPoint(label: 'Category A', value: 250);
-        const instance2 = DataPoint(label: 'Category A', value: 250);
+        const instance1 = DataPoint(
+          label: {SupportedLanguage.en: 'Category A'},
+          value: 250,
+        );
+        const instance2 = DataPoint(
+          label: {SupportedLanguage.en: 'Category A'},
+          value: 250,
+        );
         expect(instance1, equals(instance2));
       });
 
       test('should not equate instances with different properties', () {
         final instance1 = DataPoint(timestamp: now, value: 150);
         final instance2 = DataPoint(timestamp: now, value: 999);
-        const instance3 = DataPoint(label: 'Category A', value: 250);
+        const instance3 = DataPoint(
+          label: {SupportedLanguage.en: 'Category A'},
+          value: 250,
+        );
         expect(instance1, isNot(equals(instance2)));
         expect(instance1, isNot(equals(instance3)));
       });

@@ -1,3 +1,4 @@
+import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/utils/nullable_date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -40,7 +41,7 @@ class DataPoint extends Equatable {
   final DateTime? timestamp;
 
   /// The label for a categorical data point. Can be null for time-series data.
-  final String? label;
+  final Map<SupportedLanguage, String>? label;
 
   /// The numeric value of this data point.
   final num value;
@@ -50,7 +51,11 @@ class DataPoint extends Equatable {
 
   /// Creates a copy of this [DataPoint] with the given fields
   /// replaced with the new values.
-  DataPoint copyWith({DateTime? timestamp, String? label, num? value}) {
+  DataPoint copyWith({
+    DateTime? timestamp,
+    Map<SupportedLanguage, String>? label,
+    num? value,
+  }) {
     assert(
       timestamp == null || label == null,
       'Cannot provide both timestamp and label to copyWith.',
