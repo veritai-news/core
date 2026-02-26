@@ -6,41 +6,44 @@ part of 'language.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Language _$LanguageFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Language', json, ($checkedConvert) {
-      final val = Language(
-        id: $checkedConvert('id', (v) => v as String),
-        code: $checkedConvert('code', (v) => v as String),
-        name: $checkedConvert('name', (v) => v as String),
-        nativeName: $checkedConvert('nativeName', (v) => v as String),
-        createdAt: $checkedConvert(
-          'createdAt',
-          (v) => const DateTimeConverter().fromJson(v as String),
+Language _$LanguageFromJson(Map<String, dynamic> json) => $checkedCreate(
+  'Language',
+  json,
+  ($checkedConvert) {
+    final val = Language(
+      id: $checkedConvert('id', (v) => v as String),
+      code: $checkedConvert('code', (v) => v as String),
+      name: $checkedConvert(
+        'name',
+        (v) => (v as Map<String, dynamic>).map(
+          (k, e) =>
+              MapEntry($enumDecode(_$SupportedLanguageEnumMap, k), e as String),
         ),
-        updatedAt: $checkedConvert(
-          'updatedAt',
-          (v) => const DateTimeConverter().fromJson(v as String),
-        ),
-        status: $checkedConvert(
-          'status',
-          (v) => $enumDecode(_$ContentStatusEnumMap, v),
-        ),
-      );
-      return val;
-    });
+      ),
+      nativeName: $checkedConvert('nativeName', (v) => v as String),
+    );
+    return val;
+  },
+);
 
 Map<String, dynamic> _$LanguageToJson(Language instance) => <String, dynamic>{
   'id': instance.id,
   'code': instance.code,
-  'name': instance.name,
+  'name': instance.name.map(
+    (k, e) => MapEntry(_$SupportedLanguageEnumMap[k]!, e),
+  ),
   'nativeName': instance.nativeName,
-  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
-  'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
-  'status': _$ContentStatusEnumMap[instance.status]!,
 };
 
-const _$ContentStatusEnumMap = {
-  ContentStatus.active: 'active',
-  ContentStatus.draft: 'draft',
-  ContentStatus.archived: 'archived',
+const _$SupportedLanguageEnumMap = {
+  SupportedLanguage.en: 'en',
+  SupportedLanguage.es: 'es',
+  SupportedLanguage.fr: 'fr',
+  SupportedLanguage.ar: 'ar',
+  SupportedLanguage.pt: 'pt',
+  SupportedLanguage.de: 'de',
+  SupportedLanguage.it: 'it',
+  SupportedLanguage.zh: 'zh',
+  SupportedLanguage.hi: 'hi',
+  SupportedLanguage.ja: 'ja',
 };

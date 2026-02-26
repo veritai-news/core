@@ -21,9 +21,6 @@ void main() {
           languageFixture.code,
           languageFixture.name,
           languageFixture.nativeName,
-          languageFixture.createdAt,
-          languageFixture.updatedAt,
-          languageFixture.status,
         ]),
       );
     });
@@ -40,15 +37,7 @@ void main() {
       });
 
       test('throws CheckedFromJsonException for missing fields', () {
-        final requiredKeys = [
-          'id',
-          'code',
-          'name',
-          'nativeName',
-          'createdAt',
-          'updatedAt',
-          'status',
-        ];
+        final requiredKeys = ['id', 'code', 'name', 'nativeName'];
         for (final key in requiredKeys) {
           final corruptedJson = Map<String, dynamic>.from(languageJson)
             ..remove(key);
@@ -70,14 +59,12 @@ void main() {
     group('copyWith', () {
       test('returns a new object with updated values', () {
         final updated = languageFixture.copyWith(
-          name: 'Spanish',
+          name: {SupportedLanguage.en: 'Spanish'},
           nativeName: 'Español',
-          status: ContentStatus.archived,
         );
 
-        expect(updated.name, 'Spanish');
+        expect(updated.name, {SupportedLanguage.en: 'Spanish'});
         expect(updated.nativeName, 'Español');
-        expect(updated.status, ContentStatus.archived);
         // Ensure other properties are unchanged
         expect(updated.id, languageFixture.id);
         expect(updated.code, languageFixture.code);

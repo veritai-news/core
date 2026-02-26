@@ -1,5 +1,4 @@
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/utils/utils.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -18,9 +17,6 @@ class Language extends Equatable {
     required this.code,
     required this.name,
     required this.nativeName,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.status,
   });
 
   /// Creates a Language instance from a JSON map.
@@ -34,55 +30,30 @@ class Language extends Equatable {
   final String code;
 
   /// The common name of the language (e.g., "English", "Spanish").
-  final String name;
+  final Map<SupportedLanguage, String> name;
 
   /// The name of the language in its own tongue.
   final String nativeName;
-
-  /// The creation timestamp of the language.
-  @DateTimeConverter()
-  final DateTime createdAt;
-
-  /// The last update timestamp of the language.
-  @DateTimeConverter()
-  final DateTime updatedAt;
-
-  /// The current status of the language.
-  final ContentStatus status;
 
   /// Converts this Language instance into a JSON map.
   Map<String, dynamic> toJson() => _$LanguageToJson(this);
 
   @override
-  List<Object?> get props => [
-    id,
-    code,
-    name,
-    nativeName,
-    createdAt,
-    updatedAt,
-    status,
-  ];
+  List<Object?> get props => [id, code, name, nativeName];
 
   /// Creates a copy of this [Language] but with the given fields replaced with
   /// the new values.
   Language copyWith({
     String? id,
     String? code,
-    String? name,
+    Map<SupportedLanguage, String>? name,
     String? nativeName,
-    DateTime? createdAt,
-    DateTime? updatedAt,
-    ContentStatus? status,
   }) {
     return Language(
       id: id ?? this.id,
       code: code ?? this.code,
       name: name ?? this.name,
       nativeName: nativeName ?? this.nativeName,
-      createdAt: createdAt ?? this.createdAt,
-      updatedAt: updatedAt ?? this.updatedAt,
-      status: status ?? this.status,
     );
   }
 }
