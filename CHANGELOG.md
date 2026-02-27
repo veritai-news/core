@@ -10,6 +10,7 @@ and this project adheres to Semantic Versioning.
 ### Added
 - **feat(i18n)**: Introduced `SupportedLanguage` enum to define the system's linguistic capabilities and `LocalizationConfig` to control the active language policy per deployment.
 - **feat(config)**: Added `LocalizationConfig` to `AppConfig`, allowing remote management of `enabledLanguages` and the `defaultLanguage` fallback.
+- **BREAKING chore**: package consolidations 
 
 ### Changed
 - **BREAKING refactor(models)**: Implemented the Multilingual Content Strategy across the entire data layer. All user-facing string properties (e.g., `title`, `name`, `description`, `label`) in core models (`Headline`, `Topic`, `Source`, `Country`, `CallToActionItem`, `ContentCollectionItem`, `SavedHeadlineFilter`, `RankedListItem`, `KpiCardData`, `ChartCardData`, `PushNotificationPayload`) have been converted from `String` to `Map<SupportedLanguage, String>`. This allows the database to store all translations while the API projects a single language to the client.
