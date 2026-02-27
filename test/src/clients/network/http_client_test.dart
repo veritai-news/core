@@ -18,6 +18,8 @@ typedef TokenProvider = Future<String?> Function();
 void main() {
   setUpAll(() {
     registerFallbackValue(BaseOptions());
+    registerFallbackValue(Options());
+    registerFallbackValue(CancelToken());
     registerFallbackValue(RequestOptions(path: ''));
     registerFallbackValue(StackTrace.empty);
   });
@@ -74,7 +76,7 @@ void main() {
       const path = '/test';
       final responseData = {'key': 'value'};
       final requestOptions = RequestOptions(path: path);
-      final response = Response(
+      final response = Response<Map<String, dynamic>>(
         requestOptions: requestOptions,
         data: responseData,
         statusCode: 200,
@@ -83,7 +85,7 @@ void main() {
       test('returns data on successful request', () async {
         // Arrange
         when(
-          () => mockDio.get<dynamic>(
+          () => mockDio.get<Map<String, dynamic>>(
             any(),
             queryParameters: any(named: 'queryParameters'),
             options: any(named: 'options'),
@@ -115,7 +117,7 @@ void main() {
           // Arrange
           final exception = UnauthorizedException('Invalid token');
           when(
-            () => mockDio.get<dynamic>(
+            () => mockDio.get<Map<String, dynamic>>(
               any(),
               queryParameters: any(named: 'queryParameters'),
               options: any(named: 'options'),
@@ -145,7 +147,7 @@ void main() {
           error: 'Some error',
         );
         when(
-          () => mockDio.get<dynamic>(
+          () => mockDio.get<Map<String, dynamic>>(
             any(),
             queryParameters: any(named: 'queryParameters'),
             options: any(named: 'options'),
@@ -172,7 +174,7 @@ void main() {
       final requestData = {'name': 'test'};
       final responseData = {'id': '1', 'name': 'test'};
       final requestOptions = RequestOptions(path: path);
-      final response = Response(
+      final response = Response<Map<String, dynamic>>(
         requestOptions: requestOptions,
         data: responseData,
         statusCode: 201,
@@ -181,7 +183,7 @@ void main() {
       test('returns data on successful request', () async {
         // Arrange
         when(
-          () => mockDio.post<dynamic>(
+          () => mockDio.post<Map<String, dynamic>>(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -215,7 +217,7 @@ void main() {
       final requestData = {'name': 'updated'};
       final responseData = {'id': '1', 'name': 'updated'};
       final requestOptions = RequestOptions(path: path);
-      final response = Response(
+      final response = Response<Map<String, dynamic>>(
         requestOptions: requestOptions,
         data: responseData,
         statusCode: 200,
@@ -224,7 +226,7 @@ void main() {
       test('returns data on successful request', () async {
         // Arrange
         when(
-          () => mockDio.put<dynamic>(
+          () => mockDio.put<Map<String, dynamic>>(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
@@ -256,7 +258,7 @@ void main() {
     group('delete', () {
       const path = '/test/1';
       final requestOptions = RequestOptions(path: path);
-      final response = Response(
+      final response = Response<void>(
         requestOptions: requestOptions,
         data: null,
         statusCode: 204,
@@ -265,7 +267,7 @@ void main() {
       test('completes on successful request', () async {
         // Arrange
         when(
-          () => mockDio.delete<dynamic>(
+          () => mockDio.delete<void>(
             any(),
             data: any(named: 'data'),
             queryParameters: any(named: 'queryParameters'),
