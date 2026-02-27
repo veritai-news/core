@@ -7,3 +7,4 @@ export 'src/exceptions/exceptions.dart';
 export 'src/fixtures/fixtures.dart';
 export 'src/models/models.dart';
 export 'src/repositories/repositories.dart';
+export 'src/services/services.dart';
