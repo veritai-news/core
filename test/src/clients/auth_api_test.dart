@@ -1,6 +1,21 @@
 import 'dart:async';
 
-import 'package:core/core.dart';
+import 'package:core/core.dart'
+    show
+        AccessTier,
+        AuthApi,
+        AuthSuccessResponse,
+        AuthenticationException,
+        HttpClient,
+        InvalidInputException,
+        NetworkException,
+        OperationFailedException,
+        ResponseMetadata,
+        ServerException,
+        SuccessApiResponse,
+        UnauthorizedException,
+        User,
+        UserRole;
 import 'package:logging/logging.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
@@ -10,51 +25,22 @@ class MockHttpClient extends Mock implements HttpClient {}
 
 class MockLogger extends Mock implements Logger {}
 
-class MockUser extends Mock implements User {
-  @override
-  Map<FeedDecoratorType, UserFeedDecoratorStatus> get feedDecoratorStatus =>
-      Map<FeedDecoratorType, UserFeedDecoratorStatus>.fromEntries(
-        FeedDecoratorType.values.map(
-          (type) => MapEntry(
-            type,
-            const UserFeedDecoratorStatus(isCompleted: false),
-          ),
-        ),
-      );
-}
-
 // Fake User for testing
 final fakeUser = User(
   id: 'user-123',
   email: 'test@test.com',
-  appRole: AppUserRole.standardUser,
-  dashboardRole: DashboardUserRole.none,
+  role: UserRole.user,
+  tier: AccessTier.standard,
   createdAt: DateTime.now(),
-  feedDecoratorStatus:
-      Map<FeedDecoratorType, UserFeedDecoratorStatus>.fromEntries(
-        FeedDecoratorType.values.map(
-          (type) => MapEntry(
-            type,
-            const UserFeedDecoratorStatus(isCompleted: false),
-          ),
-        ),
-      ),
+  isAnonymous: false,
 );
 final fakeAnonymousUser = User(
   id: 'anon-456',
   email: 'anonymous@test.com',
-  appRole: AppUserRole.guestUser,
-  dashboardRole: DashboardUserRole.none,
+  role: UserRole.user,
+  tier: AccessTier.guest,
   createdAt: DateTime.now(),
-  feedDecoratorStatus:
-      Map<FeedDecoratorType, UserFeedDecoratorStatus>.fromEntries(
-        FeedDecoratorType.values.map(
-          (type) => MapEntry(
-            type,
-            const UserFeedDecoratorStatus(isCompleted: false),
-          ),
-        ),
-      ),
+  isAnonymous: true,
 );
 
 final fakeAuthSuccessResponse = AuthSuccessResponse(
@@ -214,7 +200,7 @@ void main() {
           verify(
             () => mockHttpClient.get<Map<String, dynamic>>('/api/v1/auth/me'),
           ).called(1);
-          verify(() => mockLogger.fine(any())).called(greaterThan(0));
+          verify(() => mockLogger.fine(any<String>())).called(greaterThan(0));
         },
       );
 
@@ -245,7 +231,13 @@ void main() {
           verify(
             () => mockHttpClient.post<void>('/api/v1/auth/sign-out'),
           ).called(1);
-          verify(() => mockLogger.warning(any(), any(), any())).called(1);
+          verify(
+            () => mockLogger.warning(
+              any<String>(),
+              any<Object?>(),
+              any<StackTrace?>(),
+            ),
+          ).called(1);
         },
       );
 
@@ -293,7 +285,11 @@ void main() {
             () => mockHttpClient.delete<void>('/api/v1/auth/delete-account'),
           ).called(1);
           verify(
-            () => mockLogger.warning('Failed to delete account.', any(), any()),
+            () => mockLogger.warning(
+              'Failed to delete account.',
+              any<Object?>(),
+              any<StackTrace?>(),
+            ),
           ).called(1);
         });
 
@@ -314,8 +310,8 @@ void main() {
           verify(
             () => mockLogger.severe(
               'Unexpected error during account deletion.',
-              any(),
-              any(),
+              any<Object?>(),
+              any<StackTrace?>(),
             ),
           ).called(1);
         });
@@ -363,54 +359,11 @@ void main() {
           );
 
           verify(
-            () => mockLogger.warning('Failed to refresh token.', any(), any()),
-          ).called(1);
-        });
-      });
-
-      group('refreshToken', () {
-        test('succeeds and returns AuthSuccessResponse', () async {
-          when(
-            () => mockHttpClient.post<Map<String, dynamic>>(
-              '/api/v1/auth/refresh-token',
+            () => mockLogger.warning(
+              'Failed to refresh token.',
+              any<Object?>(),
+              any<StackTrace?>(),
             ),
-          ).thenAnswer(
-            (_) async => successAuthResponseToJson(
-              SuccessApiResponse(
-                data: fakeAuthSuccessResponse,
-                metadata: fakeResponseMetadata,
-              ),
-            ),
-          );
-
-          final result = await authApi.refreshToken();
-
-          expect(result, equals(fakeAuthSuccessResponse));
-          verify(
-            () => mockHttpClient.post<Map<String, dynamic>>(
-              '/api/v1/auth/refresh-token',
-            ),
-          ).called(1);
-          verify(
-            () => mockLogger.fine('Successfully refreshed token.'),
-          ).called(1);
-        });
-
-        test('rethrows HttpException on failure', () async {
-          const exception = ServerException('Refresh failed');
-          when(
-            () => mockHttpClient.post<Map<String, dynamic>>(
-              '/api/v1/auth/refresh-token',
-            ),
-          ).thenThrow(exception);
-
-          await expectLater(
-            () => authApi.refreshToken(),
-            throwsA(isA<ServerException>()),
-          );
-
-          verify(
-            () => mockLogger.warning('Failed to refresh token.', any(), any()),
           ).called(1);
         });
       });
@@ -501,7 +454,9 @@ void main() {
           ),
         ).called(1);
         verify(
-          () => mockLogger.info(any(that: contains('Requesting sign-in code'))),
+          () => mockLogger.info(
+            any<String>(that: contains('Requesting sign-in code')),
+          ),
         ).called(1);
       });
 
@@ -525,9 +480,9 @@ void main() {
         ).called(1);
         verify(
           () => mockLogger.warning(
-            any(that: contains('Failed to request sign-in code')),
-            any(),
-            any(),
+            any<String>(that: contains('Failed to request sign-in code')),
+            any<Object?>(),
+            any<StackTrace?>(),
           ),
         ).called(1);
       });
@@ -554,12 +509,13 @@ void main() {
             ),
           ).called(1);
           verify(
-            () =>
-                mockLogger.info(any(that: contains('Verifying sign-in code'))),
+            () => mockLogger.info(
+              any<String>(that: contains('Verifying sign-in code')),
+            ),
           ).called(1);
           verify(
             () => mockLogger.fine(
-              any(that: contains('Successfully verified code')),
+              any<String>(that: contains('Successfully verified code')),
             ),
           ).called(1);
         },
@@ -589,9 +545,9 @@ void main() {
         ).called(1);
         verify(
           () => mockLogger.warning(
-            any(that: contains('Failed to verify sign-in code')),
-            any(),
-            any(),
+            any<String>(that: contains('Failed to verify sign-in code')),
+            any<Object?>(),
+            any<StackTrace?>(),
           ),
         ).called(1);
       });
@@ -615,7 +571,7 @@ void main() {
           ).called(1);
           verify(
             () => mockLogger.fine(
-              any(that: contains('Successfully signed in anonymously')),
+              any<String>(that: contains('Successfully signed in anonymously')),
             ),
           ).called(1);
         },
@@ -642,8 +598,8 @@ void main() {
         verify(
           () => mockLogger.warning(
             'Failed to sign in anonymously.',
-            any(),
-            any(),
+            any<Object?>(),
+            any<StackTrace?>(),
           ),
         ).called(1);
       });
@@ -674,8 +630,8 @@ void main() {
           verify(
             () => mockLogger.severe(
               'Unexpected error during backend sign-out notification.',
-              any(),
-              any(),
+              any<Object?>(),
+              any<StackTrace?>(),
             ),
           ).called(1);
         },
@@ -693,7 +649,11 @@ void main() {
             () => mockHttpClient.delete<void>('/api/v1/auth/delete-account'),
           ).called(1);
           verify(
-            () => mockLogger.warning('Failed to delete account.', any(), any()),
+            () => mockLogger.warning(
+              'Failed to delete account.',
+              any<Object?>(),
+              any<StackTrace?>(),
+            ),
           ).called(1);
         });
       });
@@ -712,26 +672,11 @@ void main() {
           );
 
           verify(
-            () => mockLogger.warning('Failed to refresh token.', any(), any()),
-          ).called(1);
-        });
-      });
-
-      group('refreshToken', () {
-        test('throws UnauthorizedException when not logged in', () async {
-          when(
-            () => mockHttpClient.post<Map<String, dynamic>>(
-              '/api/v1/auth/refresh-token',
+            () => mockLogger.warning(
+              'Failed to refresh token.',
+              any<Object?>(),
+              any<StackTrace?>(),
             ),
-          ).thenThrow(const UnauthorizedException('No token'));
-
-          await expectLater(
-            () => authApi.refreshToken(),
-            throwsA(isA<UnauthorizedException>()),
-          );
-
-          verify(
-            () => mockLogger.warning('Failed to refresh token.', any(), any()),
           ).called(1);
         });
       });
