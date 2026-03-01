@@ -7,6 +7,8 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-03-1
+
 ### Added
 - **feat(i18n)**: Introduced `SupportedLanguage` enum to define the system's linguistic capabilities and `LocalizationConfig` to control the active language policy per deployment.
 - **feat(config)**: Added `LocalizationConfig` to `AppConfig`, allowing remote management of `enabledLanguages` and the `defaultLanguage` fallback.
