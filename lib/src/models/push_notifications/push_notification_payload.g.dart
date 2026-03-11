@@ -48,4 +48,5 @@ const _$ContentTypeEnumMap = {
   ContentType.topic: 'topic',
   ContentType.source: 'source',
   ContentType.country: 'country',
+  ContentType.person: 'person',
 };

@@ -63,6 +63,7 @@ const _$MediaAssetPurposeEnumMap = {
   MediaAssetPurpose.headlineImage: 'headlineImage',
   MediaAssetPurpose.topicImage: 'topicImage',
   MediaAssetPurpose.sourceImage: 'sourceImage',
+  MediaAssetPurpose.personPhoto: 'personPhoto',
 };
 
 const _$MediaAssetStatusEnumMap = {
@@ -76,4 +77,5 @@ const _$MediaAssetEntityTypeEnumMap = {
   MediaAssetEntityType.headline: 'headline',
   MediaAssetEntityType.topic: 'topic',
   MediaAssetEntityType.source: 'source',
+  MediaAssetEntityType.person: 'person',
 };
