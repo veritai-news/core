@@ -5,7 +5,7 @@ void main() {
   group('LimitedAction', () {
     test('has correct number of values', () {
       // This test is fragile and will need updates if the enum changes.
-      expect(LimitedAction.values.length, 10);
+      expect(LimitedAction.values.length, 11);
     });
 
     test('has correct string names', () {
