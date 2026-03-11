@@ -3,6 +3,7 @@ import 'package:core/core.dart';
 /// Generates a list of predefined saved headline filters for fixture data.
 List<SavedHeadlineFilter> getSavedHeadlineFiltersFixturesData() {
   final topics = getTopicsFixturesData();
+  final persons = getPersonsFixturesData();
 
   final names = <SupportedLanguage, List<String>>{
     SupportedLanguage.en: ['US Tech News', 'Global Business'],
@@ -39,6 +40,7 @@ List<SavedHeadlineFilter> getSavedHeadlineFiltersFixturesData() {
         topics: [topics[0]], // Technology
         sources: const [],
         countries: [countriesFixturesData[0]], // United States
+        persons: [persons[0]],
       ),
     ),
     SavedHeadlineFilter(
@@ -53,6 +55,7 @@ List<SavedHeadlineFilter> getSavedHeadlineFiltersFixturesData() {
         topics: [topics[6]], // Business
         sources: const [],
         countries: const [],
+        persons: const [],
       ),
     ),
   ];

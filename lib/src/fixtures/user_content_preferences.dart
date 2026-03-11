@@ -7,6 +7,7 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData() {
   // Get language-specific fixtures
   final sources = getSourcesFixturesData();
   final topics = getTopicsFixturesData();
+  final persons = getPersonsFixturesData();
   final headlines = getHeadlinesFixturesData();
   final savedHeadlineFilters = getSavedHeadlineFiltersFixturesData();
 
@@ -26,6 +27,9 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData() {
         topics[6], // Business
         topics[7], // Travel
       ],
+      followedPersons: [
+        persons[0], // John Doe
+      ],
       savedHeadlines: [headlines[0], headlines[10]],
       savedHeadlineFilters: savedHeadlineFilters
           .map((e) => e.copyWith(userId: kAdminUserId))
@@ -42,6 +46,7 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData() {
         topics[2], // Politics
         topics[4], // Health
       ],
+      followedPersons: const [],
       savedHeadlines: [headlines[4], headlines[5]],
       savedHeadlineFilters: savedHeadlineFilters
           .map((e) => e.copyWith(userId: kPublisherStandardId))
@@ -63,6 +68,7 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData() {
         id: userId,
         followedCountries: const [],
         followedSources: [sources[index % 10], sources[(index + 1) % 10]],
+        followedPersons: const [],
         followedTopics: [topics[index % 5], topics[(index + 1) % 5]],
         savedHeadlines: [headlines[index * 2], headlines[index * 2 + 1]],
         savedHeadlineFilters: savedHeadlineFilters

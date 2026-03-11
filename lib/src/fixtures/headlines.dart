@@ -2,6 +2,7 @@ import 'package:core/src/enums/content_status.dart';
 import 'package:core/src/enums/supported_language.dart';
 import 'package:core/src/fixtures/countries.dart';
 import 'package:core/src/fixtures/fixture_ids.dart';
+import 'package:core/src/fixtures/persons.dart';
 import 'package:core/src/fixtures/sources.dart' as source_fixtures;
 import 'package:core/src/fixtures/topics.dart' as topic_fixtures;
 import 'package:core/src/models/entities/headline.dart';
@@ -14,6 +15,7 @@ List<Headline> getHeadlinesFixturesData({DateTime? now}) {
 
   final sources = source_fixtures.getSourcesFixturesData();
   final topics = topic_fixtures.getTopicsFixturesData();
+  final persons = getPersonsFixturesData();
 
   final headlines = <Headline>[];
   for (var i = 0; i < _headlineIds.length; i++) {
@@ -35,11 +37,12 @@ List<Headline> getHeadlinesFixturesData({DateTime? now}) {
         url: 'https://example.com/news/${id.substring(0, 8)}',
         imageUrl: 'https://picsum.photos/seed/$id/800/600',
         source: source,
-        eventCountry: country,
         topic: topic,
         createdAt: referenceTime.subtract(Duration(minutes: i * 15)),
         updatedAt: referenceTime.subtract(Duration(minutes: i * 15)),
         status: ContentStatus.active,
+        mentionedCountries: [country],
+        mentionedPersons: [persons[i % persons.length]],
       ),
     );
   }
