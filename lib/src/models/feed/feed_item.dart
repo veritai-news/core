@@ -39,6 +39,8 @@ abstract class FeedItem extends Equatable {
         return Source.fromJson(json);
       case 'country':
         return Country.fromJson(json);
+      case 'person':
+        return Person.fromJson(json);
       case 'callToAction':
         return CallToActionItem.fromJson(json);
       case 'contentCollection':
@@ -63,6 +65,11 @@ abstract class FeedItem extends Equatable {
             return ContentCollectionItem<Country>.fromJson(
               json,
               (json) => Country.fromJson(json as Map<String, dynamic>),
+            );
+          case 'person':
+            return ContentCollectionItem<Person>.fromJson(
+              json,
+              (json) => Person.fromJson(json as Map<String, dynamic>),
             );
           default:
             throw FormatException('Unknown contentType: $contentType');
@@ -92,6 +99,9 @@ abstract class FeedItem extends Equatable {
       case 'country':
         final countryItem = item as Country;
         return countryItem.toJson();
+      case 'person':
+        final personItem = item as Person;
+        return personItem.toJson();
       case 'callToAction':
         final callToActionItem = item as CallToActionItem;
         return callToActionItem.toJson();
@@ -105,6 +115,8 @@ abstract class FeedItem extends Equatable {
           return item.toJson((source) => source.toJson());
         } else if (item is ContentCollectionItem<Country>) {
           return item.toJson((country) => country.toJson());
+        } else if (item is ContentCollectionItem<Person>) {
+          return item.toJson((person) => person.toJson());
         }
         throw FormatException(
           'Unknown ContentCollectionItem generic type: ${item.runtimeType}',

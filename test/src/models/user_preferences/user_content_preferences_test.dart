@@ -17,6 +17,7 @@ void main() {
         // The base fixture should now have populated lists
         final preferences = getUserContentPreferencesFixturesData().first;
         expect(preferences.followedCountries, isEmpty);
+        expect(preferences.followedPersons, isNotEmpty);
         expect(preferences.followedSources, isNotEmpty);
         expect(preferences.followedTopics, isNotEmpty);
         expect(preferences.savedHeadlines, isNotEmpty);
@@ -42,13 +43,16 @@ void main() {
     group('copyWith', () {
       test('returns a new instance with updated fields', () {
         final newCountry = countriesFixturesData[1];
+        final newPerson = getPersonsFixturesData()[1];
 
         final updatedPreferences = userContentPreferencesFixture.copyWith(
           followedCountries: [newCountry],
+          followedPersons: [newPerson],
         );
 
         expect(updatedPreferences.id, userContentPreferencesFixture.id);
         expect(updatedPreferences.followedCountries, [newCountry]);
+        expect(updatedPreferences.followedPersons, [newPerson]);
         // Verify other fields remain unchanged
         expect(
           updatedPreferences.followedSources,
@@ -92,6 +96,7 @@ void main() {
         userContentPreferencesFixture.followedCountries,
         userContentPreferencesFixture.followedSources,
         userContentPreferencesFixture.followedTopics,
+        userContentPreferencesFixture.followedPersons,
         userContentPreferencesFixture.savedHeadlines,
         userContentPreferencesFixture.savedHeadlineFilters,
       ]);

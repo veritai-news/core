@@ -33,4 +33,5 @@ const _$MediaAssetPurposeEnumMap = {
   MediaAssetPurpose.headlineImage: 'headlineImage',
   MediaAssetPurpose.topicImage: 'topicImage',
   MediaAssetPurpose.sourceImage: 'sourceImage',
+  MediaAssetPurpose.personPhoto: 'personPhoto',
 };

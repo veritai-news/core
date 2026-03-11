@@ -8,6 +8,7 @@ void main() {
       expect(ContentType.topic.name, 'topic');
       expect(ContentType.source.name, 'source');
       expect(ContentType.country.name, 'country');
+      expect(ContentType.person.name, 'person');
     });
 
     test('can be created from string values', () {
@@ -15,6 +16,7 @@ void main() {
       expect(ContentType.values.byName('topic'), ContentType.topic);
       expect(ContentType.values.byName('source'), ContentType.source);
       expect(ContentType.values.byName('country'), ContentType.country);
+      expect(ContentType.values.byName('person'), ContentType.person);
     });
 
     test('has correct toString representation', () {
@@ -22,6 +24,7 @@ void main() {
       expect(ContentType.topic.toString(), 'ContentType.topic');
       expect(ContentType.source.toString(), 'ContentType.source');
       expect(ContentType.country.toString(), 'ContentType.country');
+      expect(ContentType.person.toString(), 'ContentType.person');
     });
   });
 }

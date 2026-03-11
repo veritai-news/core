@@ -71,6 +71,8 @@ const _$KpiCardIdEnumMap = {
   KpiCardId.contentSourcesTotalSources: 'contentSourcesTotalSources',
   KpiCardId.contentSourcesNewSources: 'contentSourcesNewSources',
   KpiCardId.contentSourcesTotalFollowers: 'contentSourcesTotalFollowers',
+  KpiCardId.contentPersonsTotal: 'contentPersonsTotal',
+  KpiCardId.contentPersonsTotalFollowers: 'contentPersonsTotalFollowers',
   KpiCardId.contentTopicsTotalTopics: 'contentTopicsTotalTopics',
   KpiCardId.contentTopicsNewTopics: 'contentTopicsNewTopics',
   KpiCardId.contentTopicsTotalFollowers: 'contentTopicsTotalFollowers',
@@ -94,6 +96,9 @@ const _$KpiCardIdEnumMap = {
   KpiCardId.mediaTotalUploads: 'mediaTotalUploads',
   KpiCardId.mediaFailedUploads: 'mediaFailedUploads',
   KpiCardId.mediaAverageUploadTime: 'mediaAverageUploadTime',
+  KpiCardId.ingestionActiveTasks: 'ingestionActiveTasks',
+  KpiCardId.ingestionFailedTasks: 'ingestionFailedTasks',
+  KpiCardId.ingestionHeadlinesFetched: 'ingestionHeadlinesFetched',
 };
 
 const _$SupportedLanguageEnumMap = {

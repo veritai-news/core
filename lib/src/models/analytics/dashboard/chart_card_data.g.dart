@@ -69,6 +69,10 @@ const _$ChartCardIdEnumMap = {
   ChartCardId.contentSourcesStatusDistribution:
       'contentSourcesStatusDistribution',
   ChartCardId.contentSourcesEngagementByType: 'contentSourcesEngagementByType',
+  ChartCardId.contentPersonsMentionsOverTime: 'contentPersonsMentionsOverTime',
+  ChartCardId.contentPersonsEngagementByEntity:
+      'contentPersonsEngagementByEntity',
+  ChartCardId.contentHeadlinesViewsByPerson: 'contentHeadlinesViewsByPerson',
   ChartCardId.contentHeadlinesBreakingNewsDistribution:
       'contentHeadlinesBreakingNewsDistribution',
   ChartCardId.contentTopicsHeadlinesPublishedOverTime:
@@ -94,6 +98,9 @@ const _$ChartCardIdEnumMap = {
   ChartCardId.mediaUploadsOverTime: 'mediaUploadsOverTime',
   ChartCardId.mediaUploadsByPurpose: 'mediaUploadsByPurpose',
   ChartCardId.mediaUploadsSuccessVsFailure: 'mediaUploadsSuccessVsFailure',
+  ChartCardId.ingestionHeadlinesOverTime: 'ingestionHeadlinesOverTime',
+  ChartCardId.ingestionTaskStatusDistribution:
+      'ingestionTaskStatusDistribution',
 };
 
 const _$SupportedLanguageEnumMap = {
