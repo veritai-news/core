@@ -10,6 +10,7 @@ void main() {
       topics: [],
       sources: [],
       countries: [],
+      persons: [],
     );
 
     final emptyJson = emptyModel.toJson();
@@ -24,6 +25,7 @@ void main() {
         topics: fullModel.topics,
         sources: fullModel.sources,
         countries: fullModel.countries,
+        persons: fullModel.persons,
       );
       expect(fullModel, equals(otherModel));
     });
@@ -31,7 +33,12 @@ void main() {
     test('should have the correct props', () {
       expect(
         fullModel.props,
-        equals([fullModel.topics, fullModel.sources, fullModel.countries]),
+        equals([
+          fullModel.topics,
+          fullModel.sources,
+          fullModel.countries,
+          fullModel.persons,
+        ]),
       );
     });
 
