@@ -1,6 +1,6 @@
-import 'package:core/core.dart' show Headline, Source, Topic, User;
+import 'package:core/core.dart' show Headline, Person, Source, Topic, User;
 import 'package:core/src/models/media/media_asset.dart' show MediaAsset;
-import 'package:core/src/models/models.dart' show Headline, Source, Topic, User;
+import 'package:core/src/models/models.dart' show Headline, Person, Source, Topic, User;
 import 'package:json_annotation/json_annotation.dart';
 
 /// {@template media_asset_entity_type}
@@ -22,6 +22,9 @@ enum MediaAssetEntityType {
 
   /// The asset is associated with a [Source].
   source,
+
+  /// The asset is associated with a [Person].
+  person,
 }
 
 /// {@template media_asset_purpose}
@@ -43,6 +46,9 @@ enum MediaAssetPurpose {
 
   /// The media is intended for use as a source's logo.
   sourceImage,
+
+  /// The media is intended for use as a person's photo.
+  personPhoto,
 }
 
 /// {@template media_asset_status}
