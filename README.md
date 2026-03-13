@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/coverage-97%25-lime?style=for-the-badge" alt="coverage">
-  <a href="https://github.com/verity-hq"><img src="https://img.shields.io/badge/MAIN_PROJECT-BROWSE-purple?style=for-the-badge" alt="Main Project: Browse"></a>
+  <a href="https://github.com/veritai-news"><img src="https://img.shields.io/badge/MAIN_PROJECT-BROWSE-purple?style=for-the-badge" alt="Main Project: Browse"></a>
 </p>
 
 This `core` package serves as the foundational shared library for the **VeritAi News** ensuring consistency and accelerate development across the mobile app, web dashboard, and backend API.
