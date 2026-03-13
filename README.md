@@ -9,4 +9,4 @@ This `core` package serves as the foundational shared library for the **VeritAi 
 
 This source code is licensed for commercial use and is provided for local evaluation. A **Lifetime Commercial License** is required for any production or public-facing application.
 
-Please visit the main [Verity](https://github.com/veritai-hnews) organization page to review the full license terms and to purchase.
+Please visit the main [VeritAI](https://github.com/veritai-news) organization page to review the full license terms and to purchase.
