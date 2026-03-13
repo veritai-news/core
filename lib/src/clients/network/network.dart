@@ -1,6 +1,7 @@
 // Export Dio types
 export 'package:dio/dio.dart'
     show
+        BaseOptions,
         CancelToken,
         DioException,
         FormData,
